@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delicias Cubanas - Restaurante</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="main-header">
+        <nav class="main-nav">
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#menu">Menú</a></li>
+                <li><a href="#galeria">Galería</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+        <h1>Delicias Cubanas</h1>
+    </header>
+
+    <section id="inicio" class="hero-section animate-on-scroll">
+        <h2>Bienvenidos a Delicias Cubanas</h2>
+        <p>Disfruta de la auténtica comida cubana en un ambiente acogedor.</p>
+        <button id="location-btn" class="cta-button">Ver Ubicación</button>
+    </section>
+
+    <section id="menu" class="menu-section animate-on-scroll">
+        <h2>Nuestro Menú</h2>
+        <div id="menu-categories"></div>
+    </section>
+
+    <section id="galeria" class="gallery-section animate-on-scroll">
+        <h2>Galería</h2>
+        <div class="carousel-container">
+            <div class="carousel" id="carousel"></div>
+            <button class="carousel-prev">❮</button>
+            <button class="carousel-next">❯</button>
+            <div class="carousel-dots"></div>
+        </div>
+    </section>
+
+    <section id="contacto" class="contact-section animate-on-scroll">
+        <h2>Contáctanos</h2>
+        <p>Email: <a href="mailto:info@deliciascubanas.com">info@deliciascubanas.com</a></p>
+        <p>Teléfono: +53 24464397</p>
+        <p>Dirección: Calle Dositeo Aguilera E/Agramonte Y Garayalde,Holguín,Cuba</p>
+    </section>
+
+    <footer class="main-footer">
+        <p>© <span id="current-year"></span> Delicias Cubanas. Todos los derechos reservados.</p>
+    </footer>
+
+    <div id="location-modal" class="modal">
+        <div class="modal-content">
+            <span id="close-modal" class="close">×</span>
+            <h3>Nuestra Ubicación</h3>
+            <p>Estamos ubicados en Calle Dositeo Aguilera E/Agramonte Y Garayalde,Holguín,Cuba.</p>
+            <a href="https://maps.app.goo.gl/cMQRKsGDcqCxGu3C6" target="_blank" class="map-link">Ver en Google Maps</a>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
