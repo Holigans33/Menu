@@ -71,7 +71,6 @@ document.addEventListener('DOMContentLoaded', () => {
             menuItemDiv.style.animationDelay = `${index * 0.1}s`;
             menuItemDiv.innerHTML = `
                 <h4>${item.name}</h4>
-                <p>$${item.price.toFixed(2)}</p>
                 <span class="tooltip">${generateDescription(item)}</span>
             `;
             galleryDiv.appendChild(menuItemDiv);
