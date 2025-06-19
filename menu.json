@@ -1,5 +1,4 @@
-{
-    "Entrantes": [
+  "Entrantes": [
         {"name": "Entrante de Jamón y Queso", "price": 480.00, "description": "Dados de Jamón y Queso.", "image": "entrante_de_jamon_y_queso.jpg"},
         {"name": "Huevitos de Codorniz", "price": 1000.00, "description": "Huevitos de Codorniz.", "image": "huevitos_de_codorniz.jpg"},
         {"name": "Cóctel de Camarones", "price": 1300.00, "description": "Camarones frescos salteados con mayonesa y piña.", "image": "coctel_de_camarones.jpg"},
@@ -9,7 +8,7 @@
     ],
     "Sopas": [
         {"name": "Sopa de Vegetales", "price": 500.00, "description": "Caldo ligero de vegetales frescos, con zanahoria y calabacín , sazonado con hierbas aromáticas.", "image": "sopa_de_vegetales.jpg"},
-        {"name": "Sopa de Pollo", "price": 600.00, "description": "Sopa reconfortante eleborada con fondo de pollo y condimentada con un sabor casero.", "image": "sopa_de_pollo.jpg"}
+        {"name": "Sopa de Pollo", "price": 600.00, "description": "Sopa reconfortante elaborada con fondo de pollo y condimentada con un sabor casero.", "image": "sopa_de_pollo.jpg"}
     ],
     "Cremas": [
         {"name": "Crema Aurora", "price": 600.00, "description": "Crema suave de tomate y salsa bechamel.", "image": "crema_aurora.jpg"},
@@ -21,7 +20,7 @@
         {"name": "Lonjas de Pierna Ahumada", "price": 1300.00, "description": "Lonjas de cerdo ahumado, asadas a la perfección.", "image": "lonjas_de_pierna_ahumada.jpg"},
         {"name": "Tesoro del Mar", "price": 3200.00, "description": "Selección de mariscos frescos, incluyendo cangrejo, camarones y pescado.", "image": "tesoro_del_mar.jpg"},
         {"name": "Brochetas Marineras", "price": 3100.00, "description": "Brochetas de camarones y pescado, asadas con pimientos y cebolla, acompañadas de salsa.", "image": "brochetas_marineras.jpg"},
-        {"name": "Mar y Tierra", "price": 5900.00, "description": "Combinación de cerdo,res,coredero, camarón y pescado sasonado con vegetales y jugo de limón.", "image": "mar_y_tierra.jpg"},
+        {"name": "Mar y Tierra", "price": 5900.00, "description": "Combinación de cerdo, res, cordero, camarón y pescado sazonado con vegetales y jugo de limón.", "image": "mar_y_tierra.jpg"},
         {"name": "Fricase de Cerdo", "price": 2450.00, "description": "Cerdo guisado en una salsa criolla con tomate, acompañado de arroz blanco.", "image": "fricase_de_cerdo.jpg"},
         {"name": "Bistec de Cerdo grille", "price": 2100.00, "description": "Bistec de cerdo a la parrilla, marinado con mojo cubano.", "image": "bistec_de_cerdo_grille.jpg"},
         {"name": "Chuletas de Cerdo natural", "price": 2140.00, "description": "Chuletas de cerdo jugosas, asadas con hierbas frescas y marinado con mojito cubano.", "image": "chuletas_de_cerdo_natural.jpg"},
@@ -32,18 +31,18 @@
         {"name": "Fajita de Cerdo con vegetales", "price": 2200.00, "description": "Tiras de cerdo salteadas con pimientos, cebolla y especias.", "image": "fajita_de_cerdo_con_vegetales.jpg"},
         {"name": "Escalope de Cerdo al queso", "price": 2250.00, "description": "Escalope de cerdo cubierto con queso fundido, en una salsa de tomate.", "image": "escalope_de_cerdo_al_queso.jpg"},
         {"name": "Rollos de Cerdo grille", "price": 2500.00, "description": "Rollos de cerdo rellenos de jamón y queso, asados a la parrilla y servidos con salsa de piña.", "image": "rollos_de_cerdo_grille.jpg"},
-        {"name": "Brochetas de Cerdo con vegetales", "price": 2300.00, "description": "Bistec de credo a la plancha enrrollado con jamón y queso vegetales y piña con salsa napolitana y queso gratinado.", "image": "brochetas_de_cerdo_con_vegetales.jpg"},
+        {"name": "Brochetas de Cerdo con vegetales", "price": 2300.00, "description": "Bistec de cerdo a la plancha enrollado con jamón, queso, vegetales y piña, con salsa napolitana y queso gratinado.", "image": "brochetas_de_cerdo_con_vegetales.jpg"},
         {"name": "Masa de Cerdo frita", "price": 2500.00, "description": "Trozos de cerdo fritos hasta quedar crujientes, servidos con abundante cebolla.", "image": "masa_de_cerdo_frita.jpg"},
         {"name": "Uruguayo de Cerdo", "price": 3000.00, "description": "Bistec de cerdo relleno con jamón y queso empanado y frito.", "image": "uruguayo_de_cerdo.jpg"},
         {"name": "Bistec de Pollo leonesa", "price": 1660.00, "description": "Bistec de pollo a la plancha con cebolla.", "image": "bistec_de_pollo_leonesa.jpg"},
         {"name": "Lonjas de Pollo en salsa Tropical", "price": 1730.00, "description": "Lonjas de pollo en una salsa de tomate agridulce con piña.", "image": "lonjas_de_pollo_en_salsa_tropical.jpg"},
         {"name": "Bistec de Pollo empanado", "price": 1800.00, "description": "Bistec de pollo empanado y frito.", "image": "bistec_de_pollo_empanado.jpg"},
         {"name": "Pollo Frito", "price": 1860.00, "description": "Pollo frito al estilo cubano, crujiente por fuera y jugoso por dentro, con un toque de mojito.", "image": "pollo_frito.jpg"},
-        {"name": "Fajitas de Pollo con Vegetales", "price": 1750.00, "description": "Bistec de pollo en cortes a la Juliana saltedo a la plancha con vegetales.", "image": "fajitas_de_pollo_con_vegetales.jpg"},
+        {"name": "Fajitas de Pollo con Vegetales", "price": 1750.00, "description": "Bistec de pollo en cortes a la juliana salteado a la plancha con vegetales.", "image": "fajitas_de_pollo_con_vegetales.jpg"},
         {"name": "Brochetas de Pollo con Vegetales", "price": 1750.00, "description": "Trozos de pollo con pimiento, cebolla y aderezado con mojito cubano.", "image": "brochetas_de_pollo_con_vegetales.jpg"},
-        {"name": "Pollo Delicias Cubanas", "price": 2200.00, "description": "Bistec de pollo a la plancha con salsa de vegetales y frutas, jamón, cream bechamel y queso gratinado al estilo de la casa.", "image": "pollo_delicias_cubanas.jpg"},
+        {"name": "Pollo Delicias Cubanas", "price": 2200.00, "description": "Bistec de pollo a la plancha con salsa de vegetales y frutas, jamón, crema bechamel y queso gratinado al estilo de la casa.", "image": "pollo_delicias_cubanas.jpg"},
         {"name": "Pollo Guisado", "price": 1920.00, "description": "Pollo troceado con salsa criolla y malanga.", "image": "pollo_guisado.jpg"},
         {"name": "Pollo Gordon Blue", "price": 2800.00, "description": "Bistec de pollo relleno con queso, jamón empanado y frito.", "image": "pollo_gordon_blue.jpg"},
-        {"name": "Pollo a la Barbacoa", "price": 1800.00, "description": "Pollo en salsa de soja y mantequilla elabrado a fuego lento hasta 45 minutos.", "image": "pollo_a_la_barbacoa.jpg"}
+        {"name": "Pollo a la Barbacoa", "price": 1800.00, "description": "Pollo en salsa de soja y mantequilla elaborado a fuego lento hasta 45 minutos.", "image": "pollo_a_la_barbacoa.jpg"}
     ]
-    
+}
