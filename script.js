@@ -1,55 +1,53 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Datos del menú incrustados con descripciones detalladas
     const menuData = {
-        "Entrantes": [
-            {"name": "Entrante de Jamón y Queso", "price": 480.00, "description": "Lonjas de jamón serrano y queso manchego fundido, servidas con pan tostado y un toque de aceite de oliva."},
-            {"name": "Huevitos de Codorniz", "price": 1000.00, "description": "Huevos de codorniz fritos, presentados sobre una cama de ensalada fresca con un aderezo de limón y hierbas."},
-            {"name": "Cóctel de Camarones", "price": 1300.00, "description": "Camarones frescos cocidos, servidos fríos con una salsa de cóctel clásica y un toque de aguacate."},
-            {"name": "Cóctel de Atún", "price": 1300.00, "description": "Atún fresco en trozos, mezclado con cebolla, tomate y un aderezo cítrico, servido con galletas saladas."},
-            {"name": "Tostón Relleno", "price": 920.00, "description": "Tostones crujientes rellenos de picadillo de cerdo sazonado con especias cubanas y un toque de mojo."},
-            {"name": "Bolitas de Queso", "price": 800.00, "description": "Bolitas de queso cheddar empanizadas y fritas, acompañadas de una salsa de miel y mostaza."},
-            {"name": "Croquetas de Jamón", "price": 600.00, "description": "Croquetas caseras de jamón, cremosas por dentro y crujientes por fuera, servidas con salsa alioli."}
-        ],
-        "Sopas": [
-            {"name": "Sopa de Cebolla", "price": 700.00, "description": "Sopa tradicional de cebolla caramelizada, gratinada con queso fundido y un crostón de pan."},
-            {"name": "Sopa de Vegetales", "price": 500.00, "description": "Caldo ligero de vegetales frescos, con zanahoria, calabacín y apio, sazonado con hierbas aromáticas."},
-            {"name": "Sopa de Pollo", "price": 600.00, "description": "Sopa reconfortante de pollo con fideos, zanahoria y un toque de culantro para un sabor casero."}
-        ],
-        "Cremas": [
-            {"name": "Crema Aurora", "price": 600.00, "description": "Crema suave de tomate y pimientos rojos, con un toque de crema fresca y albahaca."},
-            {"name": "Crema de Queso", "price": 750.00, "description": "Crema rica de queso cheddar y gouda, servida con crujientes trozos de pan tostado."},
-            {"name": "Crema Virginia", "price": 800.00, "description": "Crema de calabaza y jengibre, con un toque de nuez moscada y un chorrito de crema agria."},
-            {"name": "Crema Mixta", "price": 950.00, "description": "Mezcla de cremas de maíz y mariscos, con un toque de brandy para un sabor sofisticado."}
-        ],
-        "Platos Principales": [
-            {"name": "Lonjas de Pierna Ahumada", "price": 1300.00, "description": "Lonjas de cerdo ahumado, asadas a la perfección y servidas con salsa de tamarindo."},
-            {"name": "Tesoro del Mar", "price": 3200.00, "description": "Selección de mariscos frescos, incluyendo langosta y camarones, en una salsa de vino blanco y ajo."},
-            {"name": "Brochetas Marineras", "price": 3100.00, "description": "Brochetas de camarones y pescado, asadas con pimientos y cebolla, acompañadas de salsa de limón."},
-            {"name": "Mar y Tierra", "price": 5900.00, "description": "Combinación de filete mignon y langosta a la parrilla, servida con mantequilla de ajo y vegetales salteados."},
-            {"name": "Fricase de Cerdo", "price": 2450.00, "description": "Cerdo guisado en una salsa criolla con tomate, pimientos y aceitunas, acompañado de arroz blanco."},
-            {"name": "Bistec de Cerdo grille", "price": 2100.00, "description": "Bistec de cerdo a la parrilla, marinado con mojo cubano y servido con plátanos maduros fritos."},
-            {"name": "Chuletas de Cerdo natural", "price": 2140.00, "description": "Chuletas de cerdo jugosas, asadas con hierbas frescas y acompañadas de puré de boniato."},
-            {"name": "Lonjas de Cerdo en Salsa Criolla", "price": 2200.00, "description": "Lonjas de cerdo en una salsa criolla de tomate, cebolla y pimientos, con un toque de comino."},
-            {"name": "Costilla de Cerdo asada", "price": 2800.00, "description": "Costillas de cerdo asadas lentamente, glaseadas con una salsa barbacoa de guayaba."},
-            {"name": "Lomo de Cerdo ahumado grille", "price": 2100.00, "description": "Lomo de cerdo ahumado y asado, servido con una salsa de mostaza y miel, y vegetales al vapor."},
-            {"name": "Bistec de Cerdo empanado", "price": 2150.00, "description": "Bistec de cerdo empanado y frito, acompañado de una ensalada fresca y salsa tártara."},
-            {"name": "Fajita de Cerdo con vegetales", "price": 2200.00, "description": "Tiras de cerdo salteadas con pimientos, cebolla y especias, servidas con tortillas calientes."},
-            {"name": "Escalope de Cerdo al queso", "price": 2250.00, "description": "Escalope de cerdo cubierto con queso fundido, en una salsa de tomate y albahaca."},
-            {"name": "Rollos de Cerdo grille", "price": 2500.00, "description": "Rollos de cerdo rellenos de jamón y queso, asados a la parrilla y servidos con salsa de piña."},
-            {"name": "Brochetas de Cerdo con vegetales", "price": 2300.00, "description": "Brochetas de cerdo con trozos de pimientos y cebolla, marinadas con mojo y asadas a la perfección."},
-            {"name": "Masa de Cerdo frita", "price": 2500.00, "description": "Trozos de cerdo fritos hasta quedar crujientes, servidos con una salsa de ajo y limón."},
-            {"name": "Uruguayo de Cerdo", "price": 3000.00, "description": "Bistec de cerdo a la uruguaya, cubierto con jamón, queso y salsa de tomate, gratinado al horno."},
-            {"name": "Bistec de Pollo leonesa", "price": 1660.00, "description": "Pechuga de pollo a la plancha con salsa leonesa de cebolla, pimientos y un toque de vino blanco."},
-            {"name": "Lonjas de Pollo en salsa Tropical", "price": 1730.00, "description": "Lonjas de pollo en una salsa de mango y piña, acompañadas de arroz con coco."},
-            {"name": "Bistec de Pollo empanado", "price": 1800.00, "description": "Pechuga de pollo empanada y frita, servida con papas fritas y una ensalada de col."},
-            {"name": "Pollo Frito", "price": 1860.00, "description": "Pollo frito al estilo cubano, crujiente por fuera y jugoso por dentro, con un toque de especias."},
-            {"name": "Fajitas de Pollo con Vegetales", "price": 1750.00, "description": "Tiras de pollo salteadas con pimientos y cebolla, servidas con tortillas y salsa de aguacate."},
-            {"name": "Brochetas de Pollo con Vegetales", "price": 1750.00, "description": "Brochetas de pollo marinadas con especias, asadas con pimientos y cebolla, y un toque de limón."},
-            {"name": "Pollo Delicias Cubanas", "price": 2200.00, "description": "Pechuga de pollo rellena de jamón y queso, en una salsa de tomate y pimientos, al estilo de la casa."},
-            {"name": "Pollo Guisado", "price": 1920.00, "description": "Pollo guisado con papas y zanahorias en una salsa criolla, servido con arroz blanco."},
-            {"name": "Pollo Gordon Blue", "price": 2800.00, "description": "Pechuga de pollo rellena de jamón y queso suizo, empanada y frita, con una salsa de crema."},
-            {"name": "Pollo a la Barbacoa", "price": 1800.00, "description": "Pollo asado con una salsa barbacoa de guayaba, acompañado de plátanos maduros fritos."}
-        ]
+    "Entrantes": [
+        {"name": "Entrante de Jamón y Queso", "price": 480.00, "description": "Dados de Jamón y Queso."},
+        {"name": "Huevitos de Codorniz", "price": 1000.00, "description": "Huevitos de Codorniz."},
+        {"name": "Cóctel de Camarones", "price": 1300.00, "description": "Camarones frescos salteados con mayonesa y piña."},
+        {"name": "Tostón Relleno", "price": 920.00, "description": "Tostones crujientes rellenos con jamón, mayonesa y queso gratinado."},
+        {"name": "Bolitas de Queso", "price": 800.00, "description": "Bolitas de queso acompañadas con salsa agridulce."},
+        {"name": "Croquetas de Jamón", "price": 600.00, "description": "Croquetas caseras de jamón, cremosas por dentro y crujientes por fuera, servidas con salsa."}
+    ],
+    "Sopas": [
+        {"name": "Sopa de Vegetales", "price": 500.00, "description": "Caldo ligero de vegetales frescos, con zanahoria y calabacín , sazonado con hierbas aromáticas."},
+        {"name": "Sopa de Pollo", "price": 600.00, "description": "Sopa reconfortante elaborada con fondo de pollo y condimentada con un sabor casero."}
+    ],
+    "Cremas": [
+        {"name": "Crema Aurora", "price": 600.00, "description": "Crema suave de tomate y salsa bechamel."},
+        {"name": "Crema de Queso", "price": 750.00, "description": "Crema rica de queso gouda, servida con salsa bechamel."},
+        {"name": "Crema Virginia", "price": 800.00, "description": "Crema bechamel con jamón salteado."},
+        {"name": "Crema Mixta", "price": 950.00, "description": "Fondo napolitano con crema bechamel, jamón y queso gratinado."}
+    ],
+    "Platos Principales": [
+        {"name": "Lonjas de Pierna Ahumada", "price": 1300.00, "description": "Lonjas de cerdo ahumado, asadas a la perfección."},
+        {"name": "Tesoro del Mar", "price": 3200.00, "description": "Selección de mariscos frescos, incluyendo cangrejo, camarones y pescado."},
+        {"name": "Brochetas Marineras", "price": 3100.00, "description": "Brochetas de camarones y pescado, asadas con pimientos y cebolla, acompañadas de salsa."},
+        {"name": "Mar y Tierra", "price": 5900.00, "description": "Combinación de cerdo, res, cordero, camarón y pescado sazonado con vegetales y jugo de limón."},
+        {"name": "Fricase de Cerdo", "price": 2450.00, "description": "Cerdo guisado en una salsa criolla con tomate, acompañado de arroz blanco."},
+        {"name": "Bistec de Cerdo grille", "price": 2100.00, "description": "Bistec de cerdo a la parrilla, marinado con mojo cubano."},
+        {"name": "Chuletas de Cerdo natural", "price": 2140.00, "description": "Chuletas de cerdo jugosas, asadas con hierbas frescas y marinado con mojito cubano."},
+        {"name": "Lonjas de Cerdo en Salsa Criolla", "price": 2200.00, "description": "Lonjas de cerdo en una salsa criolla de tomate, cebolla y pimientos, con un toque de comino."},
+        {"name": "Costilla de Cerdo asada", "price": 2800.00, "description": "Costillas de cerdo asadas lentamente, glaseadas con una salsa barbacoa."},
+        {"name": "Lomo de Cerdo ahumado grille", "price": 2100.00, "description": "Lomo de cerdo ahumado y asado, servido con una salsa y vegetales al vapor."},
+        {"name": "Bistec de Cerdo empanado", "price": 2150.00, "description": "Bistec de cerdo empanado y frito."},
+        {"name": "Fajita de Cerdo con vegetales", "price": 2200.00, "description": "Tiras de cerdo salteadas con pimientos, cebolla y especias."},
+        {"name": "Escalope de Cerdo al queso", "price": 2250.00, "description": "Escalope de cerdo cubierto con queso fundido, en una salsa de tomate."},
+        {"name": "Rollos de Cerdo grille", "price": 2500.00, "description": "Rollos de cerdo rellenos de jamón y queso, asados a la parrilla y servidos con salsa de piña."},
+        {"name": "Brochetas de Cerdo con vegetales", "price": 2300.00, "description": "Bistec de cerdo a la plancha enrollado con jamón, queso, vegetales y piña, con salsa napolitana y queso gratinado."},
+        {"name": "Masa de Cerdo frita", "price": 2500.00, "description": "Trozos de cerdo fritos hasta quedar crujientes, servidos con abundante cebolla."},
+        {"name": "Uruguayo de Cerdo", "price": 3000.00, "description": "Bistec de cerdo relleno con jamón y queso empanado y frito."},
+        {"name": "Bistec de Pollo leonesa", "price": 1660.00, "description": "Bistec de pollo a la plancha con cebolla."},
+        {"name": "Lonjas de Pollo en salsa Tropical", "price": 1730.00, "description": "Lonjas de pollo en una salsa de tomate agridulce con piña."},
+        {"name": "Bistec de Pollo empanado", "price": 1800.00, "description": "Bistec de pollo empanado y frito."},
+        {"name": "Pollo Frito", "price": 1860.00, "description": "Pollo frito al estilo cubano, crujiente por fuera y jugoso por dentro, con un toque de mojito."},
+        {"name": "Fajitas de Pollo con Vegetales", "price": 1750.00, "description": "Bistec de pollo en cortes a la juliana salteado a la plancha con vegetales."},
+        {"name": "Brochetas de Pollo con Vegetales", "price": 1750.00, "description": "Trozos de pollo con pimiento, cebolla y aderezado con mojito cubano."},
+        {"name": "Pollo Delicias Cubanas", "price": 2200.00, "description": "Bistec de pollo a la plancha con salsa de vegetales y frutas, jamón, crema bechamel y queso gratinado al estilo de la casa."},
+        {"name": "Pollo Guisado", "price": 1920.00, "description": "Pollo troceado con salsa criolla y malanga."},
+        {"name": "Pollo Gordon Blue", "price": 2800.00, "description": "Bistec de pollo relleno con queso, jamón empanado y frito."},
+        {"name": "Pollo a la Barbacoa", "price": 1800.00, "description": "Pollo en salsa de soja y mantequilla elaborado a fuego lento hasta 45 minutos."}
+    ]
     };
 
     // Función para obtener la descripción del plato
