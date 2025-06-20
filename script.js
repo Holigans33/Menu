@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {"name": "Fajita de Cerdo con vegetales", "price": 2200.00, "description": "Tiras de cerdo salteadas con pimientos, cebolla y especias."},
         {"name": "Escalope de Cerdo al queso", "price": 2250.00, "description": "Escalope de cerdo cubierto con queso fundido, en una salsa de tomate."},
         {"name": "Rollos de Cerdo grille", "price": 2500.00, "description": "Rollos de cerdo rellenos de jamón y queso, asados a la parrilla y servidos con salsa de piña."},
-        {"name": "Brochetas de Cerdo con vegetales", "price": 2300.00, "description": "Bistec de cerdo a la plancha enrollado con jamón, queso, vegetales y piña, con salsa napolitana y queso gratinado."},
+        {"name": "Brochetas de Cerdo con vegetales", "price": 2300.00, "description": "Bistec de cerdo a la plancha con jamón, queso, vegetales y piña, con salsa napolitana y queso gratinado."},
         {"name": "Masa de Cerdo frita", "price": 2500.00, "description": "Trozos de cerdo fritos hasta quedar crujientes, servidos con abundante cebolla."},
         {"name": "Uruguayo de Cerdo", "price": 3000.00, "description": "Bistec de cerdo relleno con jamón y queso empanado y frito."},
         {"name": "Bistec de Pollo leonesa", "price": 1660.00, "description": "Bistec de pollo a la plancha con cebolla."},
