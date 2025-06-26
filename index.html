@@ -49,6 +49,7 @@
                 <li><a href="#inicio">Inicio</a></li>
                 <li><a href="#menu">Menú</a></li>
                 <li><a href="#galeria">Galería</a></li>
+                <li><a href="#nuestros-recuerdos">Nuestros Recuerdos</a></li>
                 <li><a href="#contacto">Contacto</a></li>
             </ul>
         </nav>
@@ -79,10 +80,20 @@
     <section id="galeria" class="gallery-section animate-on-scroll">
         <h2>Galería</h2>
         <div class="carousel-container">
-            <div class="carousel" id="carousel"></div>
-            <button class="carousel-prev">❮</button>
-            <button class="carousel-next">❯</button>
-            <div class="carousel-dots"></div>
+            <div class="carousel" id="carousel" data-carousel="galeria"></div>
+            <button class="carousel-prev" data-carousel="galeria">❮</button>
+            <button class="carousel-next" data-carousel="galeria">❯</button>
+            <div class="carousel-dots" data-carousel-dots="galeria"></div>
+        </div>
+    </section>
+
+    <section id="nuestros-recuerdos" class="gallery-section animate-on-scroll">
+        <h2>Nuestros Recuerdos</h2>
+        <div class="carousel-container">
+            <div class="carousel" id="carousel-recuerdos" data-carousel="recuerdos"></div>
+            <button class="carousel-prev" data-carousel="recuerdos">❮</button>
+            <button class="carousel-next" data-carousel="recuerdos">❯</button>
+            <div class="carousel-dots" data-carousel-dots="recuerdos"></div>
         </div>
     </section>
 
