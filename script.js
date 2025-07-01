@@ -313,13 +313,19 @@ document.addEventListener('DOMContentLoaded', () => {
     inicializarCarrusel('carousel', 'galeria', 'images/gallery/', galeriaItems, getGaleriaItemHtml);
 
     // --- Datos e Inicialización para el Carrusel "Nuestros Recuerdos" ---
-    // Este array se llenará con las imágenes que subas a la carpeta 'images/nuestros_recuerdos/'
-    // Por ahora, lo dejamos vacío para que muestre el mensaje "Próximamente nuevas imágenes..."
+    // Imágenes reales de la carpeta 'images/nueva_galeria_recuerdos/'
     const nuestrosRecuerdosItems = [
-        // Ejemplo de cómo añadirías imágenes una vez las tengas:
-        // { name: "Aniversario 2023", description: "Celebrando nuestro aniversario.", imageName: "aniversario_2023.jpg" },
-        // { name: "Equipo de Cocina", description: "El corazón de Delicias Cubanas.", imageName: "equipo_cocina.jpg" },
-        // { name: "Cliente Feliz", description: "Compartiendo alegría.", imageName: "cliente_feliz.jpg" }
+        { name: "Recuerdo 1", description: "", imageName: "WhatsApp Image 2025-06-22 at 6.18.15 PM.jpeg" },
+        { name: "Recuerdo 2", description: "", imageName: "WhatsApp Image 2025-06-22 at 6.18.19 PM.jpeg" },
+        { name: "Recuerdo 3", description: "", imageName: "WhatsApp Image 2025-06-22 at 6.18.23 PM.jpeg" },
+        { name: "Recuerdo 4", description: "", imageName: "WhatsApp Image 2025-06-22 at 6.18.24 PM (1).jpeg" },
+        { name: "Recuerdo 5", description: "", imageName: "WhatsApp Image 2025-06-22 at 6.18.24 PM (2).jpeg" },
+        { name: "Recuerdo 6", description: "", imageName: "WhatsApp Image 2025-06-22 at 6.18.24 PM.jpeg" },
+        { name: "Recuerdo 7", description: "", imageName: "WhatsApp Image 2025-06-22 at 6.18.25 PM (1).jpeg" },
+        { name: "Recuerdo 8", description: "", imageName: "WhatsApp Image 2025-06-22 at 6.18.25 PM (2).jpeg" },
+        { name: "Recuerdo 9", description: "", imageName: "WhatsApp Image 2025-06-22 at 6.18.25 PM (3).jpeg" },
+        { name: "Recuerdo 10", description: "", imageName: "WhatsApp Image 2025-06-22 at 6.18.25 PM.jpeg" },
+        // ...agrega el resto de imágenes siguiendo el mismo formato...
     ];
 
     function getRecuerdosItemHtml(item, imagePathPrefix) {
@@ -330,7 +336,7 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
     }
 
-    // El prefijo de la ruta de la imagen será 'images/nuestros_recuerdos/'
-    inicializarCarrusel('carousel-recuerdos', 'recuerdos', 'images/nuestros_recuerdos/', nuestrosRecuerdosItems, getRecuerdosItemHtml);
+    // El prefijo de la ruta de la imagen será 'images/nueva_galeria_recuerdos/'
+    inicializarCarrusel('carousel-recuerdos', 'recuerdos', 'images/nueva_galeria_recuerdos/', nuestrosRecuerdosItems, getRecuerdosItemHtml);
 
 });
