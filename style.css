@@ -432,3 +432,41 @@ body {
     transform: scale(1.1);
     transition: transform 0.5s ease;
 }
+
+/* Estilos específicos para el carrusel "Nuestros Recuerdos" */
+#carousel-recuerdos .carousel-item {
+    background-color: #eeeeee; /* Fondo para espacios vacíos si la imagen no cubre todo */
+}
+
+#carousel-recuerdos .carousel-item img {
+    object-fit: contain; /* Asegura que toda la imagen sea visible dentro de los límites del ítem */
+    /* width y height al 100% son heredados de la regla general .carousel-item img, lo cual está bien. */
+}
+
+/* Estilos para los botones de selección de idioma */
+#language-selector {
+    /* El estilo inline en index.html ya lo posiciona y le da fondo. */
+    /* Aquí podemos añadir más si es necesario, o mover todo aquí. */
+}
+
+.lang-btn {
+    background-color: #444; /* Fondo oscuro para los botones */
+    color: white;
+    border: 1px solid #666;
+    padding: 5px 10px;
+    margin-left: 5px;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.lang-btn:hover {
+    background-color: #555;
+}
+
+.lang-btn.active {
+    background-color: #ff6347; /* Color de acento para el botón activo */
+    color: white;
+    border-color: #e5533d;
+}
