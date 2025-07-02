@@ -432,3 +432,13 @@ body {
     transform: scale(1.1);
     transition: transform 0.5s ease;
 }
+
+/* Estilos específicos para el carrusel "Nuestros Recuerdos" */
+#carousel-recuerdos .carousel-item {
+    background-color: #eeeeee; /* Fondo para espacios vacíos si la imagen no cubre todo */
+}
+
+#carousel-recuerdos .carousel-item img {
+    object-fit: contain; /* Asegura que toda la imagen sea visible dentro de los límites del ítem */
+    /* width y height al 100% son heredados de la regla general .carousel-item img, lo cual está bien. */
+}
