@@ -16,7 +16,7 @@
       "name": "Cóctel de Camarones",
       "price": 1300.00,
       "description": "Camarones frescos salteados con mayonesa y piña.",
-      "image": "coctel_de_camarones.jpg"
+      "image": "coctel-de-camarones.jpg"
     },
     {
       "name": "Tostón Relleno",
@@ -34,7 +34,7 @@
       "name": "Croquetas de Jamón",
       "price": 600.00,
       "description": "Croquetas caseras de jamón, cremosas por dentro y crujientes por fuera, servidas con salsa.",
-      "image": "croquetas_de_jamon.jpg"
+      "image": "croquetas_de_jamón.jpg"
     }
   ],
   "Sopas": [

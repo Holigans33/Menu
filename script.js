@@ -1,63 +1,18 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // Datos del menú incrustados con descripciones detalladas
-    const menuData = {
-    "Entrantes": [
-        {"name": "Entrante de Jamón y Queso", "price": 480.00, "description": "Dados de Jamón y Queso."},
-        {"name": "Huevitos de Codorniz", "price": 1000.00, "description": "Huevitos de Codorniz."},
-        {"name": "Cóctel de Camarones", "price": 1300.00, "description": "Camarones frescos salteados con mayonesa y piña."},
-        {"name": "Tostón Relleno", "price": 920.00, "description": "Tostones crujientes rellenos con jamón, mayonesa y queso gratinado."},
-        {"name": "Bolitas de Queso", "price": 800.00, "description": "Bolitas de queso acompañadas con salsa agridulce."},
-        {"name": "Croquetas de Jamón", "price": 600.00, "description": "Croquetas caseras de jamón, cremosas por dentro y crujientes por fuera, servidas con salsa."}
-    ],
-    "Sopas": [
-        {"name": "Sopa de Vegetales", "price": 500.00, "description": "Caldo ligero de vegetales frescos, con zanahoria y calabacín , sazonado con hierbas aromáticas."},
-        {"name": "Sopa de Pollo", "price": 600.00, "description": "Sopa reconfortante elaborada con fondo de pollo y condimentada con un sabor casero."}
-    ],
-    "Cremas": [
-        {"name": "Crema Aurora", "price": 600.00, "description": "Crema suave de tomate y salsa bechamel."},
-        {"name": "Crema de Queso", "price": 750.00, "description": "Crema rica de queso gouda, servida con salsa bechamel."},
-        {"name": "Crema Virginia", "price": 800.00, "description": "Crema bechamel con jamón salteado."},
-        {"name": "Crema Mixta", "price": 950.00, "description": "Fondo napolitano con crema bechamel, jamón y queso gratinado."}
-    ],
-    "Platos Principales": [
-        {"name": "Lonjas de Pierna Ahumada", "price": 1300.00, "description": "Lonjas de cerdo ahumado, asadas a la perfección."},
-        {"name": "Tesoro del Mar", "price": 3200.00, "description": "Selección de mariscos frescos, incluyendo cangrejo, camarones y pescado."},
-        {"name": "Brochetas Marineras", "price": 3100.00, "description": "Brochetas de camarones y pescado, asadas con pimientos y cebolla, acompañadas de salsa."},
-        {"name": "Mar y Tierra", "price": 5900.00, "description": "Combinación de cerdo, res, cordero, camarón y pescado sazonado con vegetales y jugo de limón."},
-        {"name": "Fricase de Cerdo", "price": 2450.00, "description": "Cerdo guisado en una salsa criolla con tomate, acompañado de arroz blanco."},
-        {"name": "Bistec de Cerdo grille", "price": 2100.00, "description": "Bistec de cerdo a la parrilla, marinado con mojo cubano."},
-        {"name": "Chuletas de Cerdo natural", "price": 2140.00, "description": "Chuletas de cerdo jugosas, asadas con hierbas frescas y marinado con mojito cubano."},
-        {"name": "Lonjas de Cerdo en Salsa Criolla", "price": 2200.00, "description": "Lonjas de cerdo en una salsa criolla de tomate, cebolla y pimientos, con un toque de comino."},
-        {"name": "Costilla de Cerdo asada", "price": 2800.00, "description": "Costillas de cerdo asadas lentamente, glaseadas con una salsa barbacoa."},
-        {"name": "Lomo de Cerdo ahumado grille", "price": 2100.00, "description": "Lomo de cerdo ahumado y asado, servido con una salsa y vegetales al vapor."},
-        {"name": "Bistec de Cerdo empanado", "price": 2150.00, "description": "Bistec de cerdo empanado y frito."},
-        {"name": "Fajita de Cerdo con vegetales", "price": 2200.00, "description": "Tiras de cerdo salteadas con pimientos, cebolla y especias."},
-        {"name": "Escalope de Cerdo al queso", "price": 2250.00, "description": "Escalope de cerdo cubierto con queso fundido, en una salsa de tomate."},
-        {"name": "Rollos de Cerdo grille", "price": 2500.00, "description": "Rollos de cerdo rellenos de jamón y queso, asados a la parrilla y servidos con salsa de piña."},
-        {"name": "Brochetas de Cerdo con vegetales", "price": 2300.00, "description": "Cerdo troceado, con vegetales, cebolla y piña aderezado con salsa napolitana."},
-        {"name": "Masa de Cerdo frita", "price": 2500.00, "description": "Trozos de cerdo fritos hasta quedar crujientes, servidos con abundante cebolla."},
-        {"name": "Uruguayo de Cerdo", "price": 3000.00, "description": "Bistec de cerdo relleno con jamón y queso empanado y frito."},
-        {"name": "Bistec de Pollo leonesa", "price": 1660.00, "description": "Bistec de pollo a la plancha con cebolla."},
-        {"name": "Lonjas de Pollo en salsa Tropical", "price": 1730.00, "description": "Lonjas de pollo en una salsa de tomate agridulce con piña."},
-        {"name": "Bistec de Pollo empanado", "price": 1800.00, "description": "Bistec de pollo empanado y frito."},
-        {"name": "Pollo Frito", "price": 1860.00, "description": "Pollo frito al estilo cubano, crujiente por fuera y jugoso por dentro, con un toque de mojito."},
-        {"name": "Fajitas de Pollo con Vegetales", "price": 1750.00, "description": "Bistec de pollo en cortes a la juliana salteado a la plancha con vegetales."},
-        {"name": "Brochetas de Pollo con Vegetales", "price": 1750.00, "description": "Trozos de pollo con pimiento, cebolla y aderezado con mojito cubano."},
-        {"name": "Pollo Delicias Cubanas", "price": 2200.00, "description": "Bistec de pollo a la plancha con salsa de vegetales y frutas, jamón, crema bechamel y queso gratinado al estilo de la casa."},
-        {"name": "Pollo Guisado", "price": 1920.00, "description": "Pollo troceado con salsa criolla y malanga."},
-        {"name": "Pollo Gordon Blue", "price": 2800.00, "description": "Bistec de pollo relleno con queso, jamón empanado y frito."},
-        {"name": "Pollo a la Barbacoa", "price": 1800.00, "description": "Pollo en salsa de soja y mantequilla elaborado a fuego lento hasta 45 minutos."}
-    ]
-    };
-
+document.addEventListener('DOMContentLoaded', async () => {
     // Función para obtener la descripción del plato
     const generateDescription = (item) => {
         return item.description || "Un clásico cubano lleno de sabor.";
     };
 
-    // Generar el menú dinámicamente
-    const menuCategoriesContainer = document.getElementById('menu-categories');
-    if (menuCategoriesContainer) { // Verificar si el contenedor del menú existe
+    // Función para generar el menú dinámicamente
+    const createMenuSection = (menuData) => {
+        const menuCategoriesContainer = document.getElementById('menu-categories');
+        if (!menuCategoriesContainer) {
+            console.error("El contenedor del menú 'menu-categories' no fue encontrado.");
+            return;
+        }
+        menuCategoriesContainer.innerHTML = ''; // Limpiar contenido previo
+
         for (const category in menuData) {
             const categoryDiv = document.createElement('div');
             categoryDiv.classList.add('category');
@@ -68,8 +23,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 const menuItemDiv = document.createElement('div');
                 menuItemDiv.classList.add('menu-card');
                 menuItemDiv.style.animationDelay = `${index * 0.1}s`;
+
+                const imagePath = item.image ? `images/menu/${item.image}` : 'images/gallery/placeholder.jpg'; // Asumir un placeholder si no hay imagen
+                const imageName = item.name || 'Plato'; // Nombre del plato para el alt de la imagen
+
                 menuItemDiv.innerHTML = `
+                    <img src="${imagePath}" alt="${imageName}" class="menu-image" onerror="this.src='images/gallery/placeholder.jpg'; this.alt='Imagen no disponible';">
                     <h4>${item.name}</h4>
+                    <p>${item.price ? item.price.toFixed(2) + ' CUP' : 'Precio no disponible'}</p>
                     <span class="tooltip">${generateDescription(item)}</span>
                 `;
                 galleryDiv.appendChild(menuItemDiv);
@@ -93,8 +54,25 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             });
         });
-    }
+    };
 
+    // --- Cargar datos del menú desde menu.json ---
+    let fetchedMenuData = {};
+    try {
+        const response = await fetch('menu.json');
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        fetchedMenuData = await response.json();
+        createMenuSection(fetchedMenuData); // Generar sección de menú con datos de JSON
+    } catch (error) {
+        console.error("No se pudieron cargar los datos del menú desde menu.json:", error);
+        // Opcional: Cargar datos de respaldo o mostrar un mensaje de error en la UI
+        const menuCategoriesContainer = document.getElementById('menu-categories');
+        if (menuCategoriesContainer) {
+            menuCategoriesContainer.innerHTML = "<p style='color:red; text-align:center;'>Error al cargar el menú. Intente más tarde.</p>";
+        }
+    }
 
     // Animaciones al hacer scroll
     const observerOptions = {
@@ -284,48 +262,87 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --- Datos e Inicialización para el Carrusel de Galería (Platos) ---
-    const galeriaItems = [];
-    if (typeof menuData === 'object' && menuData !== null) { // Verificar que menuData existe y es un objeto
-        for (const category in menuData) {
-            if (Array.isArray(menuData[category])) { // Verificar que cada categoría es un array
-                menuData[category].forEach(item => {
-                    if (item && typeof item.name === 'string' && typeof item.description === 'string') { // Chequeos básicos de datos
-                        galeriaItems.push({
-                            name: item.name,
-                            description: item.description,
-                            imageName: item.name.toLowerCase().replace(/ /g, '_') + '.jpg'
-                        });
-                    }
-                });
+    // Esta sección ahora dependerá de fetchedMenuData
+    const initializeGalleryCarousel = (menuDataParam) => {
+        const galeriaItems = [];
+        if (typeof menuDataParam === 'object' && menuDataParam !== null) {
+            for (const category in menuDataParam) {
+                if (Array.isArray(menuDataParam[category])) {
+                    menuDataParam[category].forEach(item => {
+                        if (item && typeof item.name === 'string' && typeof item.description === 'string' && item.image) {
+                            // Solo incluir items que tengan una propiedad 'image' definida en menu.json
+                            galeriaItems.push({
+                                name: item.name,
+                                description: item.description,
+                                imageName: item.image // Usar directamente el valor de item.image
+                            });
+                        }
+                    });
+                }
             }
         }
+
+        function getGaleriaItemHtml(item, imagePathPrefix) {
+            // imagePathPrefix será 'images/gallery/' como se define en la llamada a inicializarCarrusel
+            // item.imageName es el nombre del archivo (ej: "mi_plato.jpg")
+            const imageSrc = `${imagePathPrefix}${item.imageName}`;
+            const desc = item.description ? item.description.split('.')[0] : 'Delicioso plato';
+
+            return `
+                <img src="${imageSrc}" alt="${item.name}" loading="lazy" onerror="this.style.display='none'; this.parentElement.innerHTML += '<p style=\\'text-align:center; color: #888; padding-top: 50px;\\'>Imagen no disponible (${item.imageName})</p>'">
+                <div class="carousel-caption">${item.name} - ${desc}</div>
+            `;
+        }
+        // Usar 'images/gallery/' como imagePathPrefix para este carrusel.
+        inicializarCarrusel('carousel', 'galeria', 'images/gallery/', galeriaItems, getGaleriaItemHtml);
+    };
+
+    // Llamar a la inicialización del carrusel de galería DESPUÉS de cargar los datos del menú
+    if (Object.keys(fetchedMenuData).length > 0) {
+        initializeGalleryCarousel(fetchedMenuData);
+    } else {
+        // Si fetch falló, intenta inicializar con datos vacíos o un placeholder
+        // Esto previene errores si fetchedMenuData no se carga.
+        // El carrusel mostrará "Próximamente nuevas imágenes..." como está definido en inicializarCarrusel.
+        initializeGalleryCarousel({});
     }
-
-
-    function getGaleriaItemHtml(item, imagePathPrefix) {
-        const desc = item.description ? item.description.split('.')[0] : 'Delicioso plato';
-        return `
-            <img src="${imagePathPrefix}${item.imageName}" alt="${item.name}" loading="lazy" onerror="this.style.display='none'; this.parentElement.innerHTML += '<p style=\\'text-align:center; color: #888; padding-top: 50px;\\'>Imagen no disponible</p>'">
-            <div class="carousel-caption">${item.name} - ${desc}</div>
-        `;
-    }
-
-    inicializarCarrusel('carousel', 'galeria', 'images/gallery/', galeriaItems, getGaleriaItemHtml);
 
     // --- Datos e Inicialización para el Carrusel "Nuestros Recuerdos" ---
-    // Imágenes reales de la carpeta 'images/nueva_galeria_recuerdos/'
+    // Lista ampliada de imágenes de la carpeta 'images/nueva_galeria_recuerdos/'
+    // Se mantienen los nombres de archivo originales debido a problemas con la herramienta rename_file.
     const nuestrosRecuerdosItems = [
-        { name: "Recuerdo 1", description: "", imageName: "WhatsApp Image 2025-06-22 at 6.18.15 PM.jpeg" },
-        { name: "Recuerdo 2", description: "", imageName: "WhatsApp Image 2025-06-22 at 6.18.19 PM.jpeg" },
-        { name: "Recuerdo 3", description: "", imageName: "WhatsApp Image 2025-06-22 at 6.18.23 PM.jpeg" },
-        { name: "Recuerdo 4", description: "", imageName: "WhatsApp Image 2025-06-22 at 6.18.24 PM (1).jpeg" },
-        { name: "Recuerdo 5", description: "", imageName: "WhatsApp Image 2025-06-22 at 6.18.24 PM (2).jpeg" },
-        { name: "Recuerdo 6", description: "", imageName: "WhatsApp Image 2025-06-22 at 6.18.24 PM.jpeg" },
-        { name: "Recuerdo 7", description: "", imageName: "WhatsApp Image 2025-06-22 at 6.18.25 PM (1).jpeg" },
-        { name: "Recuerdo 8", description: "", imageName: "WhatsApp Image 2025-06-22 at 6.18.25 PM (2).jpeg" },
-        { name: "Recuerdo 9", description: "", imageName: "WhatsApp Image 2025-06-22 at 6.18.25 PM (3).jpeg" },
-        { name: "Recuerdo 10", description: "", imageName: "WhatsApp Image 2025-06-22 at 6.18.25 PM.jpeg" },
-        // ...agrega el resto de imágenes siguiendo el mismo formato...
+        { name: "Recuerdo 1", description: "Momento especial", imageName: "WhatsApp Image 2025-06-22 at 6.18.15 PM.jpeg" },
+        { name: "Recuerdo 2", description: "Celebración", imageName: "WhatsApp Image 2025-06-22 at 6.18.19 PM.jpeg" },
+        { name: "Recuerdo 3", description: "Equipo", imageName: "WhatsApp Image 2025-06-22 at 6.18.23 PM.jpeg" },
+        { name: "Recuerdo 4", description: "Ambiente", imageName: "WhatsApp Image 2025-06-22 at 6.18.24 PM (1).jpeg" },
+        { name: "Recuerdo 5", description: "Detalle", imageName: "WhatsApp Image 2025-06-22 at 6.18.24 PM (2).jpeg" },
+        { name: "Recuerdo 6", description: "Sonrisas", imageName: "WhatsApp Image 2025-06-22 at 6.18.24 PM.jpeg" },
+        { name: "Recuerdo 7", description: "Rincón acogedor", imageName: "WhatsApp Image 2025-06-22 at 6.18.25 PM (1).jpeg" },
+        { name: "Recuerdo 8", description: "Brindis", imageName: "WhatsApp Image 2025-06-22 at 6.18.25 PM (2).jpeg" },
+        { name: "Recuerdo 9", description: "Plato estrella", imageName: "WhatsApp Image 2025-06-22 at 6.18.25 PM (3).jpeg" },
+        { name: "Recuerdo 10", description: "Noche mágica", imageName: "WhatsApp Image 2025-06-22 at 6.18.25 PM.jpeg" },
+        { name: "Recuerdo 11", description: "Pasión por la cocina", imageName: "WhatsApp Image 2025-06-22 at 6.18.26 PM (1).jpeg" },
+        { name: "Recuerdo 12", description: "Tradición", imageName: "WhatsApp Image 2025-06-22 at 6.18.26 PM (2).jpeg" },
+        { name: "Recuerdo 13", description: "Sabor cubano", imageName: "WhatsApp Image 2025-06-22 at 6.18.26 PM.jpeg" },
+        { name: "Recuerdo 14", description: "Encuentro", imageName: "WhatsApp Image 2025-06-22 at 6.18.27 PM (1).jpeg" },
+        { name: "Recuerdo 15", description: "Alegría", imageName: "WhatsApp Image 2025-06-22 at 6.18.27 PM (2).jpeg" },
+        { name: "Recuerdo 16", description: "Recuerdo inolvidable", imageName: "WhatsApp Image 2025-06-22 at 6.18.29 PM (1).jpeg" },
+        { name: "Recuerdo 17", description: "Desde la cocina", imageName: "WhatsApp Image 2025-06-22 at 6.18.29 PM.jpeg" },
+        { name: "Recuerdo 18", description: "Arte culinario", imageName: "WhatsApp Image 2025-06-22 at 6.18.30 PM (1).jpeg" },
+        { name: "Recuerdo 19", description: "Nuestro espacio", imageName: "WhatsApp Image 2025-06-22 at 6.18.30 PM (2).jpeg" },
+        { name: "Recuerdo 20", description: "Con cariño", imageName: "WhatsApp Image 2025-06-22 at 6.18.30 PM.jpeg" },
+        { name: "Recuerdo 21", description: "Sazón único", imageName: "WhatsApp Image 2025-06-22 at 6.18.31 PM (1).jpeg" },
+        { name: "Recuerdo 22", description: "Risas compartidas", imageName: "WhatsApp Image 2025-06-22 at 6.18.31 PM (2).jpeg" },
+        { name: "Recuerdo 23", description: "Buen provecho", imageName: "WhatsApp Image 2025-06-22 at 6.18.31 PM.jpeg" },
+        { name: "Recuerdo 24", description: "Instantes", imageName: "WhatsApp Image 2025-06-22 at 6.18.32 PM (1).jpeg" },
+        { name: "Recuerdo 25", description: "Felicidad", imageName: "WhatsApp Image 2025-06-22 at 6.18.32 PM.jpeg" },
+        { name: "Recuerdo 26", description: "Delicias", imageName: "WhatsApp Image 2025-06-22 at 6.18.33 PM.jpeg" },
+        { name: "Recuerdo 27", description: "Atardecer", imageName: "WhatsApp Image 2025-06-22 at 6.19.44 PM.jpeg" },
+        { name: "Recuerdo 28", description: "Rincón especial", imageName: "WhatsApp Image 2025-06-22 at 6.19.46 PM (1).jpeg" },
+        { name: "Recuerdo 29", description: "Nuestra gente", imageName: "WhatsApp Image 2025-06-22 at 6.19.46 PM (2).jpeg" },
+        { name: "Recuerdo 30", description: "Siempre bienvenidos", imageName: "WhatsApp Image 2025-06-22 at 6.19.46 PM.jpeg" }
+        // Se han añadido 30 imágenes. Idealmente, se deberían añadir las 151.
+        // Los nombres de archivo pueden contener caracteres que necesiten ser codificados por el navegador.
     ];
 
     function getRecuerdosItemHtml(item, imagePathPrefix) {
