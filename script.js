@@ -117,10 +117,17 @@ document.addEventListener('DOMContentLoaded', async () => {
             "menu.item_pollo_gordon_blue_name": "Pollo Gordon Blue",
             "menu.item_pollo_gordon_blue_description": "Bistec de pollo relleno con queso, jamón empanado y frito.",
             "menu.item_pollo_a_la_barbacoa_name": "Pollo a la Barbacoa",
-            "menu.item_pollo_a_la_barbacoa_description": "Pollo en salsa de soja y mantequilla elaborado a fuego lento hasta 45 minutos."
+            "menu.item_pollo_a_la_barbacoa_description": "Pollo en salsa de soja y mantequilla elaborado a fuego lento hasta 45 minutos.",
+
+            // Mensajes del Banner Dinámico
+            "banner.message1": "Una pequeña propina es una gran forma de agradecer su dedicación.",
+            "banner.message2": "Nuestros meseros están capacitados para recomendarte lo mejor del menú.",
+            "banner.message3": "Pregunta a nuestro personal, ¡estamos aquí para ayudarte!",
+            "banner.message4": "Disfruta la autenticidad de nuestra comida criolla, hecha con amor.",
+            "banner.message5": "Tu generosidad ayuda a nuestro personal a seguir sonriendo.",
+            "banner.message6": "Cada bocado es una explosión de tradición y sazón."
         },
         en: {
-            // EJEMPLOS - NECESITO QUE PROPORCIONES ESTAS TRADUCCIONES
             page_title: "Delicias Cubanas - Restaurant",
             nav_home: "Home",
             nav_menu: "Menu",
@@ -129,16 +136,23 @@ document.addEventListener('DOMContentLoaded', async () => {
             anniversary_p1_html: "<p>In our restaurant, we proudly celebrate 16 years dedicated to sharing the true essence of Cuban cuisine. Since our beginnings, we have strived to keep the taste of our land alive.<br><br></p>",
             anniversary_p2_html: "<p>We firmly believe in authenticity: every dish we serve is a genuine expression of Cuban culture, prepared with the same love and dedication as at home. We promote respect and hospitality as fundamental pillars.<br><br></p>",
             anniversary_p3_html: "<p>Cuban identity is our hallmark: here, you don't just come to eat, but to live an experience where music, joy, and human warmth are felt in every corner. Thank you to those who have accompanied us on this journey!</p>",
+            price_not_available: "Price not available",
+            image_not_available: "Image not available",
+            default_plate_description: "Delicious dish",
             // ... (NECESITO EL RESTO DE TRADUCCIONES EN INGLÉS PARA COMPLETAR) ...
             "menu.category_Entrantes": "Appetizers", // Ejemplo
             "menu.item_fricase_de_cerdo_name": "Pork Fricassee", // Ejemplo
             "menu.item_fricase_de_cerdo_description": "Pork stewed in a Creole tomato sauce, served with white rice.", // Ejemplo
-            price_not_available: "Price not available",
-            image_not_available: "Image not available",
-            default_plate_description: "Delicious dish"
+
+            // Traducciones Banner EN
+            "banner.message1": "A small tip is a great way to appreciate their dedication.",
+            "banner.message2": "Our waiters are trained to recommend the best of the menu.",
+            "banner.message3": "Ask our staff, we are here to help you!",
+            "banner.message4": "Enjoy the authenticity of our Creole food, made with love.",
+            "banner.message5": "Your generosity helps our staff keep smiling.",
+            "banner.message6": "Every bite is an explosion of tradition and flavor."
         },
         it: {
-            // EJEMPLOS - NECESITO QUE PROPORCIONES ESTAS TRADUCCIONES
             page_title: "Delicias Cubanas - Ristorante",
             nav_home: "Inizio",
             nav_menu: "Menù",
@@ -147,13 +161,21 @@ document.addEventListener('DOMContentLoaded', async () => {
             anniversary_p1_html: "<p>Nel nostro ristorante celebriamo con orgoglio 16 anni dedicati a condividere la vera essenza della cucina cubana. Fin dai nostri inizi, ci siamo sforzati di mantenere vivo il sapore della nostra terra.<br><br></p>",
             anniversary_p2_html: "<p>Crediamo fermamente nell'autenticità: ogni piatto che serviamo è un'espressione genuina della cultura cubana, preparato con lo stesso amore e dedizione di casa. Promuoviamo il rispetto e l'ospitalità come pilastri fondamentali.<br><br></p>",
             anniversary_p3_html: "<p>La cubanità è il nostro sigillo: qui non si viene solo per mangiare, ma per vivere un'esperienza dove la musica, la gioia e il calore umano si sentono in ogni angolo. Grazie a coloro che ci hanno accompagnato in questo viaggio!</p>",
+            price_not_available: "Prezzo non disponibile",
+            image_not_available: "Immagine non disponibile",
+            default_plate_description: "Piatto delizioso",
             // ... (NECESITO EL RESTO DE TRADUCCIONES EN ITALIANO PARA COMPLETAR) ...
             "menu.category_Entrantes": "Antipasti", // Ejemplo
             "menu.item_fricase_de_cerdo_name": "Fricassea di Maiale", // Ejemplo
             "menu.item_fricase_de_cerdo_description": "Spezzatino di maiale in salsa creola di pomodoro, accompagnato da riso bianco.", // Ejemplo
-            price_not_available: "Prezzo non disponibile",
-            image_not_available: "Immagine non disponibile",
-            default_plate_description: "Piatto delizioso"
+
+            // Traducciones Banner IT
+            "banner.message1": "Una piccola mancia è un ottimo modo per apprezzare la loro dedizione.",
+            "banner.message2": "I nostri camerieri sono formati per consigliarti il meglio del menu.",
+            "banner.message3": "Chiedi al nostro personale, siamo qui per aiutarti!",
+            "banner.message4": "Goditi l'autenticità del nostro cibo creolo, fatto con amore.",
+            "banner.message5": "La tua generosità aiuta il nostro personale a continuare a sorridere.",
+            "banner.message6": "Ogni boccone è un'esplosione di tradizione e sapore."
         }
     };
 
@@ -224,6 +246,18 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (window.originalFetchedMenuData) {
             createMenuSection(window.originalFetchedMenuData, lang);
             initializeGalleryCarousel(window.originalFetchedMenuData, lang);
+        }
+        // Refrescar el banner con el nuevo idioma
+        if (typeof displayNextBannerMessage === "function" && bannerMessageKeys.length > 0) {
+            // Forzar la actualización inmediata del banner en lugar de esperar al intervalo
+            // Para ello, podemos simplemente llamar a displayNextBannerMessage,
+            // pero asegurándonos de que no interfiera demasiado con el temporizador si está activo.
+            // Una forma simple es reiniciar la rotación.
+            if (bannerIntervalId) clearInterval(bannerIntervalId); // Detener rotación actual
+            displayNextBannerMessage(); // Mostrar mensaje en nuevo idioma
+            if (bannerMessageKeys.length > 1) { // Reiniciar rotación si hay múltiples mensajes
+                 bannerIntervalId = setInterval(displayNextBannerMessage, bannerDisplayTime + bannerFadeTime * 2);
+            }
         }
     }
 
@@ -318,7 +352,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         // Configurar idioma inicial y cargar contenido
         const preferredLanguage = localStorage.getItem('preferredLanguage') || 'es';
-        setLanguage(preferredLanguage); // Esto llamará a createMenuSection y initializeGalleryCarousel
+        await setLanguage(preferredLanguage); // Asegurarse que setLanguage complete todas sus tareas async (aunque no las tiene ahora)
+        startBannerRotation(); // Iniciar el banner DESPUÉS de que el idioma inicial esté configurado
 
     } catch (error) {
         console.error("No se pudieron cargar los datos del menú desde menu.json:", error);
@@ -604,6 +639,79 @@ document.addEventListener('DOMContentLoaded', async () => {
     inicializarCarrusel('carousel-recuerdos', 'recuerdos', 'images/nueva_galeria_recuerdos/', nuestrosRecuerdosItems, getRecuerdosItemHtml);
 
     // --- FIN LÓGICA DE TRADUCCIÓN ---
+
+    // --- INICIO LÓGICA BANNER DINÁMICO ---
+    const bannerMessageKeys = [
+        "banner.message1",
+        "banner.message2",
+        "banner.message3",
+        "banner.message4",
+        "banner.message5",
+        "banner.message6"
+    ];
+    let currentBannerMessageIndex = -1; // Para asegurar que el primer mensaje sea aleatorio y no siempre el mismo
+    let bannerIntervalId = null;
+    const bannerDisplayTime = 10000; // 10 segundos
+    const bannerFadeTime = 500; // 0.5 segundos para la transición de opacidad
+
+    const bannerContentElement = document.getElementById('dynamic-banner-content');
+
+    function displayNextBannerMessage() {
+        if (!bannerContentElement || bannerMessageKeys.length === 0) {
+            // console.log("Banner element o mensajes no encontrados.");
+            return;
+        }
+
+        bannerContentElement.classList.add('fade-out'); // Inicia el fade-out
+
+        setTimeout(() => {
+            let randomIndex;
+            if (bannerMessageKeys.length > 1) {
+                do {
+                    randomIndex = Math.floor(Math.random() * bannerMessageKeys.length);
+                } while (randomIndex === currentBannerMessageIndex);
+            } else {
+                randomIndex = 0; // Si solo hay un mensaje, mostrar siempre ese
+            }
+            currentBannerMessageIndex = randomIndex;
+
+            const messageKey = bannerMessageKeys[currentBannerMessageIndex];
+            // Usar currentLanguage que es la variable global del idioma actual
+            let translatedMessage = siteTranslations[currentLanguage]?.[messageKey] || siteTranslations['es']?.[messageKey];
+
+            if (!translatedMessage) {
+                // console.warn(`Traducción para banner no encontrada: ${messageKey}`);
+                translatedMessage = messageKey; // Mostrar la clave si no hay traducción
+            }
+
+            bannerContentElement.textContent = translatedMessage;
+            bannerContentElement.classList.remove('fade-out'); // Inicia el fade-in
+        }, bannerFadeTime);
+    }
+
+    function startBannerRotation() {
+        if (bannerIntervalId) {
+            clearInterval(bannerIntervalId);
+        }
+        if (bannerMessageKeys.length > 0 && bannerContentElement) {
+            displayNextBannerMessage(); // Mostrar el primer mensaje inmediatamente
+            if (bannerMessageKeys.length > 1) {
+                 // El tiempo de intervalo debe ser el tiempo de visualización + el tiempo de fade out + el tiempo de fade in
+                bannerIntervalId = setInterval(displayNextBannerMessage, bannerDisplayTime + (bannerFadeTime * 2));
+            }
+        } else {
+            // console.log("No se inicia la rotación del banner, no hay mensajes o elemento no encontrado.");
+        }
+    }
+    // --- FIN LÓGICA BANNER DINÁMICO ---
+
+    // Modificación en la carga inicial para iniciar el banner después de setLanguage
+    // (dentro del try...catch de carga de menu.json)
+    // ...
+    // const preferredLanguage = localStorage.getItem('preferredLanguage') || 'es';
+    // await setLanguage(preferredLanguage); // setLanguage es async
+    // startBannerRotation(); // Ahora se llama aquí
+
 
     // Añadir listeners a los botones de idioma
     document.querySelectorAll('#language-selector .lang-btn').forEach(button => {
