@@ -521,3 +521,33 @@ body {
     color: white;
     border-color: #e5533d;
 }
+
+/* Estilos para el Banner Dinámico de Noticias/Consejos */
+.dynamic-banner-section {
+    padding: 2rem 1rem; /* Espaciado vertical para la sección */
+    background-color: #f9f9f9; /* Un fondo muy sutil para la sección si se desea */
+}
+
+.dynamic-banner-content {
+    background-color: #fff7e6; /* Un tono crema/amarillo pálido, acogedor */
+    color: #5d4037; /* Color de texto marrón oscuro */
+    padding: 1.5rem 2rem;
+    border-radius: 12px;
+    border: 2px dashed #e67e22; /* Borde discontinuo anaranjado */
+    max-width: 900px;
+    margin: 0 auto; /* Centrar el banner */
+    text-align: center;
+    font-size: 1.1em;
+    font-family: 'Montserrat', sans-serif;
+    min-height: 60px; /* Altura mínima para que no colapse si el texto es corto */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: opacity 0.5s ease-in-out; /* Transición para el cambio de texto */
+}
+
+/* Clase para manejar el fade out/in del texto del banner */
+.dynamic-banner-content.fade-out {
+    opacity: 0;
+}
