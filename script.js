@@ -125,10 +125,17 @@ document.addEventListener('DOMContentLoaded', async () => {
             nav_home: "Home",
             nav_menu: "Menu",
             hero_title: "Welcome to Delicias Cubanas",
-            // ... etc. para todas las claves ...
-            "menu.category_Entrantes": "Appetizers",
-            "menu.item_fricase_de_cerdo_name": "Pork Fricassee",
-            "menu.item_fricase_de_cerdo_description": "Pork stewed in a Creole tomato sauce, served with white rice."
+            anniversary_title: "16 years of authentic Cuban spirit and respect",
+            anniversary_p1_html: "<p>In our restaurant, we proudly celebrate 16 years dedicated to sharing the true essence of Cuban cuisine. Since our beginnings, we have strived to keep the taste of our land alive.<br><br></p>",
+            anniversary_p2_html: "<p>We firmly believe in authenticity: every dish we serve is a genuine expression of Cuban culture, prepared with the same love and dedication as at home. We promote respect and hospitality as fundamental pillars.<br><br></p>",
+            anniversary_p3_html: "<p>Cuban identity is our hallmark: here, you don't just come to eat, but to live an experience where music, joy, and human warmth are felt in every corner. Thank you to those who have accompanied us on this journey!</p>",
+            // ... (NECESITO EL RESTO DE TRADUCCIONES EN INGLÉS PARA COMPLETAR) ...
+            "menu.category_Entrantes": "Appetizers", // Ejemplo
+            "menu.item_fricase_de_cerdo_name": "Pork Fricassee", // Ejemplo
+            "menu.item_fricase_de_cerdo_description": "Pork stewed in a Creole tomato sauce, served with white rice.", // Ejemplo
+            price_not_available: "Price not available",
+            image_not_available: "Image not available",
+            default_plate_description: "Delicious dish"
         },
         it: {
             // EJEMPLOS - NECESITO QUE PROPORCIONES ESTAS TRADUCCIONES
@@ -136,10 +143,17 @@ document.addEventListener('DOMContentLoaded', async () => {
             nav_home: "Inizio",
             nav_menu: "Menù",
             hero_title: "Benvenuti a Delicias Cubanas",
-            // ... etc. para todas las claves ...
-            "menu.category_Entrantes": "Antipasti",
-            "menu.item_fricase_de_cerdo_name": "Fricassea di Maiale",
-            "menu.item_fricase_de_cerdo_description": "Spezzatino di maiale in salsa creola di pomodoro, accompagnato da riso bianco."
+            anniversary_title: "16 anni di autentica cubanità e rispetto",
+            anniversary_p1_html: "<p>Nel nostro ristorante celebriamo con orgoglio 16 anni dedicati a condividere la vera essenza della cucina cubana. Fin dai nostri inizi, ci siamo sforzati di mantenere vivo il sapore della nostra terra.<br><br></p>",
+            anniversary_p2_html: "<p>Crediamo fermamente nell'autenticità: ogni piatto che serviamo è un'espressione genuina della cultura cubana, preparato con lo stesso amore e dedizione di casa. Promuoviamo il rispetto e l'ospitalità come pilastri fondamentali.<br><br></p>",
+            anniversary_p3_html: "<p>La cubanità è il nostro sigillo: qui non si viene solo per mangiare, ma per vivere un'esperienza dove la musica, la gioia e il calore umano si sentono in ogni angolo. Grazie a coloro che ci hanno accompagnato in questo viaggio!</p>",
+            // ... (NECESITO EL RESTO DE TRADUCCIONES EN ITALIANO PARA COMPLETAR) ...
+            "menu.category_Entrantes": "Antipasti", // Ejemplo
+            "menu.item_fricase_de_cerdo_name": "Fricassea di Maiale", // Ejemplo
+            "menu.item_fricase_de_cerdo_description": "Spezzatino di maiale in salsa creola di pomodoro, accompagnato da riso bianco.", // Ejemplo
+            price_not_available: "Prezzo non disponibile",
+            image_not_available: "Immagine non disponibile",
+            default_plate_description: "Piatto delizioso"
         }
     };
 
