@@ -203,25 +203,27 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     let currentLanguage = 'es'; // Idioma por defecto
     window.originalFetchedMenuData = null; // Para almacenar los datos originales del menú
+    let isInitialLoad = true; // Bandera para la carga inicial
 
     async function setLanguage(lang) {
         if (!siteTranslations[lang]) {
             console.warn(`Traducciones para el idioma '${lang}' no encontradas. Usando '${currentLanguage}'.`);
-            lang = currentLanguage;
+            lang = currentLanguage; // Usar el idioma actual si el nuevo no es válido
         }
-        currentLanguage = lang;
+        currentLanguage = lang; // Actualizar el idioma global
 
+        // 1. Actualizar lang del HTML y título de la página
         document.documentElement.lang = lang;
         const titleKey = 'page_title';
-        document.title = siteTranslations[lang][titleKey] || siteTranslations['es'][titleKey];
+        document.title = siteTranslations[lang]?.[titleKey] || siteTranslations['es']?.[titleKey] || document.title;
 
+        // 2. Traducir todos los elementos estáticos con data-translation-key
         document.querySelectorAll('[data-translation-key]').forEach(element => {
             const key = element.dataset.translationKey;
-            let translation = siteTranslations[lang][key];
+            let translation = siteTranslations[lang]?.[key];
 
-            // Fallback a español si la traducción no existe en el idioma actual
-            if (translation === undefined && lang !== 'es') {
-                translation = siteTranslations['es'][key];
+            if (translation === undefined && lang !== 'es') { // Fallback a español
+                translation = siteTranslations['es']?.[key];
             }
 
             if (translation !== undefined) {
@@ -230,33 +232,32 @@ document.addEventListener('DOMContentLoaded', async () => {
                 } else {
                     element.textContent = translation;
                 }
-            } else {
-                // console.warn(`Traducción no encontrada para la clave: ${key} en idioma ${lang} o en español.`);
-                // Mantener el texto original del HTML si no hay clave ni en el idioma actual ni en español
             }
+            // Si la traducción sigue siendo undefined, el texto original del HTML se mantiene.
         });
 
+        // 3. Guardar preferencia en localStorage
         localStorage.setItem('preferredLanguage', lang);
 
+        // 4. Actualizar clase 'active' en botones de idioma
         document.querySelectorAll('#language-selector .lang-btn').forEach(btn => {
             btn.classList.toggle('active', btn.dataset.lang === lang);
-            // Estilo para el botón activo (se añadirá en CSS)
         });
 
+        // 5. Refrescar contenido dinámico (menú, galería, banner) SOLO si no es la carga inicial
+        // O si ya se han cargado los datos del menú
         if (window.originalFetchedMenuData) {
-            createMenuSection(window.originalFetchedMenuData, lang);
-            initializeGalleryCarousel(window.originalFetchedMenuData, lang);
-        }
-        // Refrescar el banner con el nuevo idioma
-        if (typeof displayNextBannerMessage === "function" && bannerMessageKeys.length > 0) {
-            // Forzar la actualización inmediata del banner en lugar de esperar al intervalo
-            // Para ello, podemos simplemente llamar a displayNextBannerMessage,
-            // pero asegurándonos de que no interfiera demasiado con el temporizador si está activo.
-            // Una forma simple es reiniciar la rotación.
-            if (bannerIntervalId) clearInterval(bannerIntervalId); // Detener rotación actual
-            displayNextBannerMessage(); // Mostrar mensaje en nuevo idioma
-            if (bannerMessageKeys.length > 1) { // Reiniciar rotación si hay múltiples mensajes
-                 bannerIntervalId = setInterval(displayNextBannerMessage, bannerDisplayTime + bannerFadeTime * 2);
+            if (!isInitialLoad) { // Si es un cambio de idioma por el usuario, no la carga inicial
+                createMenuSection(window.originalFetchedMenuData, currentLanguage);
+                initializeGalleryCarousel(window.originalFetchedMenuData, currentLanguage);
+            }
+            // El banner siempre se refresca para asegurar que tome el idioma correcto
+            if (typeof displayNextBannerMessage === "function" && bannerMessageKeys.length > 0) {
+                // La rotación del banner se manejará/reiniciará explícitamente después de setLanguage si es necesario
+                // o al final de la inicialización. Por ahora, solo mostramos el mensaje actual traducido.
+                if (bannerIntervalId) clearInterval(bannerIntervalId); // Detener la rotación para evitar que cambie justo después de traducir
+                displayNextBannerMessage(); // Actualizar el mensaje actual del banner al nuevo idioma
+                // La rotación se reiniciará en startBannerRotation o después de la carga inicial si es necesario
             }
         }
     }
@@ -350,10 +351,18 @@ document.addEventListener('DOMContentLoaded', async () => {
             }));
         }
 
-        // Configurar idioma inicial y cargar contenido
+        // Configurar idioma inicial y cargar contenido estático
         const preferredLanguage = localStorage.getItem('preferredLanguage') || 'es';
-        await setLanguage(preferredLanguage); // Asegurarse que setLanguage complete todas sus tareas async (aunque no las tiene ahora)
-        startBannerRotation(); // Iniciar el banner DESPUÉS de que el idioma inicial esté configurado
+        await setLanguage(preferredLanguage);
+
+        // Renderizar contenido dinámico por primera vez
+        if (window.originalFetchedMenuData) {
+            createMenuSection(window.originalFetchedMenuData, currentLanguage);
+            initializeGalleryCarousel(window.originalFetchedMenuData, currentLanguage);
+        }
+
+        startBannerRotation(); // Iniciar el banner después de que todo esté configurado
+        isInitialLoad = false; // Marcar que la carga inicial ha terminado
 
     } catch (error) {
         console.error("No se pudieron cargar los datos del menú desde menu.json:", error);
@@ -715,8 +724,13 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // Añadir listeners a los botones de idioma
     document.querySelectorAll('#language-selector .lang-btn').forEach(button => {
-        button.addEventListener('click', (event) => {
-            setLanguage(event.target.dataset.lang);
+        button.addEventListener('click', async (event) => { // Hacer el listener async
+            await setLanguage(event.target.dataset.lang); // setLanguage es async
+            // Después de que setLanguage haya actualizado todo, incluyendo el mensaje actual del banner,
+            // reiniciamos explícitamente la rotación del banner.
+            if (typeof startBannerRotation === "function") {
+                startBannerRotation();
+            }
         });
     });
 });
