@@ -1,4 +1,7 @@
 document.addEventListener('DOMContentLoaded', async () => {
+    // Mover la inicialización de bannerContentElement aquí,
+    // porque el DOM ya está cargado.
+    bannerContentElement = document.getElementById('dynamic-banner-content');
 
     // Objeto de Traducciones
     const siteTranslations = {
@@ -178,6 +181,65 @@ document.addEventListener('DOMContentLoaded', async () => {
             "banner.message6": "Ogni boccone è un'esplosione di tradizione e sapore."
         }
     };
+
+    // --- INICIO LÓGICA BANNER DINÁMICO ---
+    const bannerMessageKeys = [
+        "banner.message1",
+        "banner.message2",
+        "banner.message3",
+        "banner.message4",
+        "banner.message5",
+        "banner.message6"
+    ];
+    let currentBannerMessageIndex = -1; // Para asegurar que el primer mensaje sea aleatorio y no siempre el mismo
+    let bannerIntervalId = null;
+    const bannerDisplayTime = 10000; // 10 segundos
+    const bannerFadeTime = 500; // 0.5 segundos para la transición de opacidad
+    let bannerContentElement = null; // Se inicializará en DOMContentLoaded
+
+    function displayNextBannerMessage() {
+        if (!bannerContentElement || bannerMessageKeys.length === 0) {
+            return;
+        }
+        bannerContentElement.classList.add('fade-out');
+        setTimeout(() => {
+            let randomIndex;
+            if (bannerMessageKeys.length > 1) {
+                do {
+                    randomIndex = Math.floor(Math.random() * bannerMessageKeys.length);
+                } while (randomIndex === currentBannerMessageIndex);
+            } else {
+                randomIndex = 0;
+            }
+            currentBannerMessageIndex = randomIndex;
+            const messageKey = bannerMessageKeys[currentBannerMessageIndex];
+            let translatedMessage = siteTranslations[currentLanguage]?.[messageKey] || siteTranslations['es']?.[messageKey];
+            if (!translatedMessage) {
+                translatedMessage = messageKey;
+            }
+            bannerContentElement.textContent = translatedMessage;
+            bannerContentElement.classList.remove('fade-out');
+        }, bannerFadeTime);
+    }
+
+    function startBannerRotation() {
+        if (bannerIntervalId) {
+            clearInterval(bannerIntervalId);
+        }
+        // Asegurarse que bannerContentElement esté definido antes de usarlo
+        if (!bannerContentElement) { // Esta comprobación es por si se llama antes de DOMContentLoaded
+            bannerContentElement = document.getElementById('dynamic-banner-content');
+            if(!bannerContentElement) return; // Si aún no existe, no hacer nada.
+        }
+
+        if (bannerMessageKeys.length > 0 && bannerContentElement) {
+            displayNextBannerMessage();
+            if (bannerMessageKeys.length > 1) {
+                bannerIntervalId = setInterval(displayNextBannerMessage, bannerDisplayTime + (bannerFadeTime * 2));
+            }
+        }
+    }
+    // --- FIN LÓGICA BANNER DINÁMICO ---
 
     // --- INICIO LÓGICA DE TRADUCCIÓN ---
 
