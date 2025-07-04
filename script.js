@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', async () => {
-    // Mover la inicialización de bannerContentElement aquí,
-    // porque el DOM ya está cargado.
+
+    // Inicializar la variable ya declarada globalmente
     bannerContentElement = document.getElementById('dynamic-banner-content');
 
     // Objeto de Traducciones
@@ -195,7 +195,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     let bannerIntervalId = null;
     const bannerDisplayTime = 10000; // 10 segundos
     const bannerFadeTime = 500; // 0.5 segundos para la transición de opacidad
-    let bannerContentElement = null; // Se inicializará en DOMContentLoaded
+    // Se inicializará en DOMContentLoaded
+    // let bannerContentElement = null;
 
     function displayNextBannerMessage() {
         if (!bannerContentElement || bannerMessageKeys.length === 0) {
