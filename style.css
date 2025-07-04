@@ -495,10 +495,7 @@ body {
 }
 
 /* Estilos para los botones de selección de idioma */
-#language-selector {
-    /* El estilo inline en index.html ya lo posiciona y le da fondo. */
-    /* Aquí podemos añadir más si es necesario, o mover todo aquí. */
-}
+/* #language-selector ruleset removed because it was empty */
 
 .lang-btn {
     background-color: #444; /* Fondo oscuro para los botones */
