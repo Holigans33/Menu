@@ -1,119 +1,89 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es"> <!-- El atributo lang también debería cambiar dinámicamente -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Delicias Cubanas - Restaurante</title>
+    <title data-translation-key="page_title">Delicias Cubanas - Restaurante</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="stylesheet" href="style.css">
     <!-- Google Fonts para una letra más atractiva -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-    <style>
-      .mensaje-valores {
-        background: linear-gradient(135deg, #fff5e1 0%, #ffdab9 100%);
-        border: 2.5px solid #b96517;
-        padding: 28px 20px 24px 20px;
-        margin: 32px auto 36px auto;
-        border-radius: 16px;
-        text-align: center;
-        max-width: 740px;
-        box-shadow:
-          0 6px 24px rgba(180, 110, 40, 0.15),
-          0 1.5px 4px rgba(0,0,0,0.09),
-          0 0 0 6px #fffdf8;
-        font-family: 'Montserrat', Arial, sans-serif;
-        position: relative;
-        z-index: 2;
-      }
-      .mensaje-valores h2 {
-        margin-bottom: 18px;
-        color: #b96517;
-        font-family: 'Playfair Display', serif;
-        font-size: 2.1em;
-        font-weight: 700;
-        text-shadow: 0 2px 8px rgba(255,255,255,0.18);
-      }
-      .mensaje-valores p {
-        font-size: 1.18em;
-        color: #4e2b06;
-        font-family: 'Montserrat', Arial, sans-serif;
-        font-weight: 400;
-        line-height: 1.5;
-      }
-    </style>
 </head>
 <body>
     <header class="main-header">
+        <div id="language-selector" style="text-align: right; padding: 10px; background-color: #2a2a2a;">
+            <button data-lang="es" class="lang-btn">ES</button>
+            <button data-lang="en" class="lang-btn">EN</button>
+            <button data-lang="it" class="lang-btn">IT</button>
+        </div>
         <nav class="main-nav">
             <ul>
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#menu">Menú</a></li>
-                <li><a href="#galeria">Galería</a></li>
-                <li><a href="#nuestros-recuerdos">Nuestros Recuerdos</a></li>
-                <li><a href="#contacto">Contacto</a></li>
+                <li><a href="#inicio" data-translation-key="nav_home">Inicio</a></li>
+                <li><a href="#menu" data-translation-key="nav_menu">Menú</a></li>
+                <li><a href="#galeria" data-translation-key="nav_gallery">Galería</a></li>
+                <li><a href="#nuestros-recuerdos" data-translation-key="nav_memories">Nuestros Recuerdos</a></li>
+                <li><a href="#contacto" data-translation-key="nav_contact">Contacto</a></li>
             </ul>
         </nav>
-        <h1>Delicias Cubanas</h1>
+        <h1 data-translation-key="main_header_title">Delicias Cubanas</h1>
     </header>
 
     <!-- Mensaje de valores y aniversario -->
     <div class="mensaje-valores">
-      <h2>16 años de auténtica cubanía y respeto</h2>
-      <p>
-        En nuestro restaurante celebramos con orgullo 16 años dedicados a compartir la verdadera esencia de la cocina cubana. Desde nuestros inicios, nos hemos esforzado por mantener vivo el sabor de nuestra tierra.<br><br>
-        Creemos firmemente en la autenticidad: cada plato que servimos es una expresión genuina de la cultura cubana, preparado con el mismo amor y dedicación que en casa. Fomentamos el respeto y la hospitalidad como pilares fundamentales.<br><br>
-        La cubanía es nuestro sello: aquí no solo se viene a comer, sino a vivir una experiencia donde la música, la alegría y la calidez humana se sienten en cada rincón. ¡Gracias a quienes nos han acompañado en este viaje!
-      </p>
+      <h2 data-translation-key="anniversary_title">16 años de auténtica cubanía y respeto</h2>
+      <div data-translation-key="anniversary_p1_html"><p>En nuestro restaurante celebramos con orgullo 16 años dedicados a compartir la verdadera esencia de la cocina cubana. Desde nuestros inicios, nos hemos esforzado por mantener vivo el sabor de nuestra tierra.<br><br></p></div>
+      <div data-translation-key="anniversary_p2_html"><p>Creemos firmemente en la autenticidad: cada plato que servimos es una expresión genuina de la cultura cubana, preparado con el mismo amor y dedicación que en casa. Fomentamos el respeto y la hospitalidad como pilares fundamentales.<br><br></p></div>
+      <div data-translation-key="anniversary_p3_html"><p>La cubanía es nuestro sello: aquí no solo se viene a comer, sino a vivir una experiencia donde la música, la alegría y la calidez humana se sienten en cada rincón. ¡Gracias a quienes nos han acompañado en este viaje!</p></div>
     </div>
 
     <section id="inicio" class="hero-section animate-on-scroll">
-        <h2>Bienvenidos a Delicias Cubanas</h2>
-        <p>Disfruta de la auténtica comida cubana en un ambiente acogedor.</p>
-        <button id="location-btn" class="cta-button">Ver Ubicación</button>
+        <h2 data-translation-key="hero_title">Bienvenidos a Delicias Cubanas</h2>
+        <p data-translation-key="hero_subtitle">Disfruta de la auténtica comida cubana en un ambiente acogedor.</p>
+        <button id="location-btn" class="cta-button" data-translation-key="hero_location_button">Ver Ubicación</button>
     </section>
 
     <section id="menu" class="menu-section animate-on-scroll">
-        <h2>Nuestro Menú</h2>
+        <h2 data-translation-key="menu_section_title">Nuestro Menú</h2>
         <div id="menu-categories"></div>
     </section>
 
     <section id="galeria" class="gallery-section animate-on-scroll">
-        <h2>Galería</h2>
+        <h2 data-translation-key="gallery_section_title">Galería</h2>
         <div class="carousel-container">
             <div class="carousel" id="carousel" data-carousel="galeria"></div>
-            <button class="carousel-prev" data-carousel="galeria">❮</button>
-            <button class="carousel-next" data-carousel="galeria">❯</button>
+            <button class="carousel-prev" data-carousel="galeria" data-translation-key="gallery_prev_button" aria-label="Anterior">❮</button>
+            <button class="carousel-next" data-carousel="galeria" data-translation-key="gallery_next_button" aria-label="Siguiente">❯</button>
             <div class="carousel-dots" data-carousel-dots="galeria"></div>
         </div>
     </section>
 
     <section id="nuestros-recuerdos" class="gallery-section animate-on-scroll">
-        <h2>Nuestros Recuerdos</h2>
+        <h2 data-translation-key="memories_section_title">Nuestros Recuerdos</h2>
         <div class="carousel-container">
             <div class="carousel" id="carousel-recuerdos" data-carousel="recuerdos"></div>
-            <button class="carousel-prev" data-carousel="recuerdos">❮</button>
-            <button class="carousel-next" data-carousel="recuerdos">❯</button>
+            <button class="carousel-prev" data-carousel="recuerdos" data-translation-key="memories_prev_button" aria-label="Anterior">❮</button>
+            <button class="carousel-next" data-carousel="recuerdos" data-translation-key="memories_next_button" aria-label="Siguiente">❯</button>
             <div class="carousel-dots" data-carousel-dots="recuerdos"></div>
         </div>
     </section>
 
     <section id="contacto" class="contact-section animate-on-scroll">
-        <h2>Contáctanos</h2>
-        <p>Email: <a href="mailto:info@deliciascubanas.com">info@deliciascubanas.com</a></p>
-        <p>Teléfono: +53 24464397</p>
-        <p>Dirección: Calle Dositeo Aguilera E/Agramonte Y Garayalde,Holguín,Cuba</p>
+        <h2 data-translation-key="contact_section_title">Contáctanos</h2>
+        <p><span data-translation-key="contact_email_label">Email:</span> <a href="mailto:info@deliciascubanas.com">info@deliciascubanas.com</a></p>
+        <p><span data-translation-key="contact_phone_label">Teléfono:</span> +53 24464397</p>
+        <p><span data-translation-key="contact_address_label">Dirección:</span> Calle Dositeo Aguilera E/Agramonte Y Garayalde,Holguín,Cuba</p>
     </section>
 
     <footer class="main-footer">
-        <p>© <span id="current-year"></span> Delicias Cubanas. Todos los derechos reservados.</p>
+        <p>© <span id="current-year"></span> Delicias Cubanas. <span data-translation-key="footer_rights">Todos los derechos reservados.</span></p>
     </footer>
 
     <div id="location-modal" class="modal">
         <div class="modal-content">
             <span id="close-modal" class="close">×</span>
-            <h3>Nuestra Ubicación</h3>
-            <p>Estamos ubicados en Calle Dositeo Aguilera E/Agramonte Y Garayalde,Holguín,Cuba.</p>
-            <a href="https://www.google.com/maps?q=Calle+Dositeo+Aguilera+E/Agramonte+Y+Garayalde,Holguín,Cuba" target="_blank" class="map-link">Ver en Google Maps</a>
+            <h3 data-translation-key="location_modal_title">Nuestra Ubicación</h3>
+            <p><span data-translation-key="location_modal_text_prefix">Estamos ubicados en</span> Calle Dositeo Aguilera E/Agramonte Y Garayalde,Holguín,Cuba.</p>
+            <a href="https://www.google.com/maps?q=Calle+Dositeo+Aguilera+E/Agramonte+Y+Garayalde,Holguín,Cuba" target="_blank" class="map-link" data-translation-key="location_modal_gmaps_button">Ver en Google Maps</a>
         </div>
     </div>
 
