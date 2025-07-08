@@ -522,32 +522,59 @@ body {
     border-color: #e5533d;
 }
 
-/* Estilos para el Banner Dinámico de Noticias/Consejos */
-.dynamic-banner-section {
-    padding: 2rem 1rem; /* Espaciado vertical para la sección */
-    background-color: #f9f9f9; /* Un fondo muy sutil para la sección si se desea */
-}
-
-.dynamic-banner-content {
-    background-color: #fff7e6; /* Un tono crema/amarillo pálido, acogedor */
-    color: #5d4037; /* Color de texto marrón oscuro */
-    padding: 1.5rem 2rem;
-    border-radius: 12px;
-    border: 2px dashed #e67e22; /* Borde discontinuo anaranjado */
-    max-width: 900px;
-    margin: 0 auto; /* Centrar el banner */
+/* Estilos para Alertas Temporales */
+.custom-alert {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Posición inicial para animación */
+    background-color: #333; /* Fondo oscuro para alto contraste */
+    color: #fff; /* Texto blanco */
+    padding: 25px; /* Aumentar padding general */
+    padding-right: 50px; /* Más espacio a la derecha para el botón de cierre */
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.4); /* Sombra más pronunciada */
+    z-index: 2000;
     text-align: center;
-    font-size: 1.1em;
     font-family: 'Montserrat', sans-serif;
-    min-height: 60px; /* Altura mínima para que no colapse si el texto es corto */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    transition: opacity 0.5s ease-in-out; /* Transición para el cambio de texto */
+    font-size: 1.15em; /* Ligeramente más grande */
+    line-height: 1.6;
+    min-width: 300px;
+    max-width: 550px; /* Un poco más de ancho máximo */
+    opacity: 0; /* Inicia invisible para animación de entrada */
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out, visibility 0s linear 0.3s;
 }
 
-/* Clase para manejar el fade out/in del texto del banner */
-.dynamic-banner-content.fade-out {
+.custom-alert.alert-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1); /* Estado final visible */
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out, visibility 0s linear 0s;
+}
+
+.custom-alert.alert-fade-out { /* Clase para activar animación de salida */
     opacity: 0;
+    transform: translate(-50%, -45%); /* Ligero movimiento hacia arriba al desaparecer */
+}
+
+.custom-alert p {
+    margin: 0;
+}
+
+.custom-alert-close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 2em;
+    font-weight: bold;
+    color: #bbb; /* Color más sutil para el botón de cierre */
+    cursor: pointer;
+    line-height: 1;
+    padding: 0px 5px; /* Ajustar padding */
+    transition: color 0.2s ease;
+}
+
+.custom-alert-close:hover {
+    color: #fff; /* Blanco al pasar el ratón */
 }
