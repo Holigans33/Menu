@@ -1,7 +1,4 @@
 document.addEventListener('DOMContentLoaded', async () => {
-    // bannerContentElement ya no es necesario globalmente para el banner eliminado
-    // bannerContentElement = document.getElementById('dynamic-banner-content');
-
     const siteTranslations = {
         es: {
             page_title: "Delicias Cubanas - Restaurante",
@@ -163,34 +160,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         "Tu generosidad ayuda a nuestro personal a seguir sonriendo.",
         "Cada bocado es una explosión de tradición y sazón."
     ];
-    let currentAlert = null;
-    let alertTimeoutId = null;
-    let alertIntervalId = null;
-    let lastAlertIndex = -1;
-    const alertDuration = 4000;
-    const alertRotationTime = 12000;
-    const alertFadeDuration = 300;
-
-    function removeCurrentAlert(wasManuallyClosed = false) {
-        if (currentAlert) {
-            currentAlert.classList.remove('alert-visible');
-            setTimeout(() => {
-                if (currentAlert && currentAlert.parentElement) {
-                    currentAlert.parentElement.removeChild(currentAlert);
-                }
-                currentAlert = null;
-            }, alertFadeDuration);
-        }
-        if (alertTimeoutId) {
-            clearTimeout(alertTimeoutId);
-            alertTimeoutId = null;
-        }
-    }
-
-    function createAndShowAlert(message) {
-        if (currentAlert) {
-            removeCurrentAlert();
-            setTimeout(() => createAndShowAlert(message), alertFadeDuration + 50);
             return;
         }
 
