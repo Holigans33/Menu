@@ -160,10 +160,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         "Tu generosidad ayuda a nuestro personal a seguir sonriendo.",
         "Cada bocado es una explosión de tradición y sazón."
     ];
-            return;
-        }
-
-        const alertDiv = document.createElement('div');
+         const alertDiv = document.createElement('div');
         alertDiv.className = 'custom-alert';
 
         const messageP = document.createElement('p');
