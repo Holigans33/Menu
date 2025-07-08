@@ -1,9 +1,4 @@
 document.addEventListener('DOMContentLoaded', async () => {
-
-    // Inicializar la variable ya declarada globalmente
-    bannerContentElement = document.getElementById('dynamic-banner-content');
-
-    // Objeto de Traducciones
     const siteTranslations = {
         es: {
             page_title: "Delicias Cubanas - Restaurante",
@@ -35,14 +30,14 @@ document.addEventListener('DOMContentLoaded', async () => {
             location_modal_title: "Nuestra Ubicación",
             location_modal_text_prefix: "Estamos ubicados en",
             location_modal_gmaps_button: "Ver en Google Maps",
+            price_not_available: "Precio no disponible", // Aunque ya no se usa en el menú, la mantenemos por si acaso
+            image_not_available: "Imagen no disponible",
+            default_plate_description: "Delicioso plato",
 
-            // Categorías del Menú
             "menu.category_Entrantes": "Entrantes",
             "menu.category_Sopas": "Sopas",
             "menu.category_Cremas": "Cremas",
             "menu.category_Platos_Principales": "Platos Principales",
-
-            // Items del menu (Español) - Nombres y Descripciones
             "menu.item_entrante_de_jamon_y_queso_name": "Entrante de Jamón y Queso",
             "menu.item_entrante_de_jamon_y_queso_description": "Dados de Jamón y Queso.",
             "menu.item_huevitos_de_codorniz_name": "Huevitos de Codorniz",
@@ -120,15 +115,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             "menu.item_pollo_gordon_blue_name": "Pollo Gordon Blue",
             "menu.item_pollo_gordon_blue_description": "Bistec de pollo relleno con queso, jamón empanado y frito.",
             "menu.item_pollo_a_la_barbacoa_name": "Pollo a la Barbacoa",
-            "menu.item_pollo_a_la_barbacoa_description": "Pollo en salsa de soja y mantequilla elaborado a fuego lento hasta 45 minutos.",
-
-            // Mensajes del Banner Dinámico
-            "banner.message1": "Una pequeña propina es una gran forma de agradecer su dedicación.",
-            "banner.message2": "Nuestros meseros están capacitados para recomendarte lo mejor del menú.",
-            "banner.message3": "Pregunta a nuestro personal, ¡estamos aquí para ayudarte!",
-            "banner.message4": "Disfruta la autenticidad de nuestra comida criolla, hecha con amor.",
-            "banner.message5": "Tu generosidad ayuda a nuestro personal a seguir sonriendo.",
-            "banner.message6": "Cada bocado es una explosión de tradición y sazón."
+            "menu.item_pollo_a_la_barbacoa_description": "Pollo en salsa de soja y mantequilla elaborado a fuego lento hasta 45 minutos."
         },
         en: {
             page_title: "Delicias Cubanas - Restaurant",
@@ -142,18 +129,9 @@ document.addEventListener('DOMContentLoaded', async () => {
             price_not_available: "Price not available",
             image_not_available: "Image not available",
             default_plate_description: "Delicious dish",
-            // ... (NECESITO EL RESTO DE TRADUCCIONES EN INGLÉS PARA COMPLETAR) ...
-            "menu.category_Entrantes": "Appetizers", // Ejemplo
-            "menu.item_fricase_de_cerdo_name": "Pork Fricassee", // Ejemplo
-            "menu.item_fricase_de_cerdo_description": "Pork stewed in a Creole tomato sauce, served with white rice.", // Ejemplo
-
-            // Traducciones Banner EN
-            "banner.message1": "A small tip is a great way to appreciate their dedication.",
-            "banner.message2": "Our waiters are trained to recommend the best of the menu.",
-            "banner.message3": "Ask our staff, we are here to help you!",
-            "banner.message4": "Enjoy the authenticity of our Creole food, made with love.",
-            "banner.message5": "Your generosity helps our staff keep smiling.",
-            "banner.message6": "Every bite is an explosion of tradition and flavor."
+            "menu.category_Entrantes": "Appetizers",
+            "menu.item_fricase_de_cerdo_name": "Pork Fricassee",
+            "menu.item_fricase_de_cerdo_description": "Pork stewed in a Creole tomato sauce, served with white rice."
         },
         it: {
             page_title: "Delicias Cubanas - Ristorante",
@@ -167,128 +145,124 @@ document.addEventListener('DOMContentLoaded', async () => {
             price_not_available: "Prezzo non disponibile",
             image_not_available: "Immagine non disponibile",
             default_plate_description: "Piatto delizioso",
-            // ... (NECESITO EL RESTO DE TRADUCCIONES EN ITALIANO PARA COMPLETAR) ...
-            "menu.category_Entrantes": "Antipasti", // Ejemplo
-            "menu.item_fricase_de_cerdo_name": "Fricassea di Maiale", // Ejemplo
-            "menu.item_fricase_de_cerdo_description": "Spezzatino di maiale in salsa creola di pomodoro, accompagnato da riso bianco.", // Ejemplo
-
-            // Traducciones Banner IT
-            "banner.message1": "Una piccola mancia è un ottimo modo per apprezzare la loro dedizione.",
-            "banner.message2": "I nostri camerieri sono formati per consigliarti il meglio del menu.",
-            "banner.message3": "Chiedi al nostro personale, siamo qui per aiutarti!",
-            "banner.message4": "Goditi l'autenticità del nostro cibo creolo, fatto con amore.",
-            "banner.message5": "La tua generosità aiuta il nostro personale a continuare a sorridere.",
-            "banner.message6": "Ogni boccone è un'esplosione di tradizione e sapore."
+            "menu.category_Entrantes": "Antipasti",
+            "menu.item_fricase_de_cerdo_name": "Fricassea di Maiale",
+            "menu.item_fricase_de_cerdo_description": "Spezzatino di maiale in salsa creola di pomodoro, accompagnato da riso bianco."
         }
     };
 
-    // --- INICIO LÓGICA BANNER DINÁMICO ---
-    const bannerMessageKeys = [
-        "banner.message1",
-        "banner.message2",
-        "banner.message3",
-        "banner.message4",
-        "banner.message5",
-        "banner.message6"
+    // --- INICIO LÓGICA DE ALERTAS TEMPORALES ---
+    const alertMessages = [
+        "Una pequeña propina es una gran forma de agradecer su dedicación.",
+        "Nuestros meseros están capacitados para recomendarte lo mejor del menú.",
+        "Pregunta a nuestro personal, ¡estamos aquí para ayudarte!",
+        "Disfruta la autenticidad de nuestra comida criolla, hecha con amor.",
+        "Tu generosidad ayuda a nuestro personal a seguir sonriendo.",
+        "Cada bocado es una explosión de tradición y sazón."
     ];
-    let currentBannerMessageIndex = -1; // Para asegurar que el primer mensaje sea aleatorio y no siempre el mismo
-    let bannerIntervalId = null;
-    const bannerDisplayTime = 10000; // 10 segundos
-    const bannerFadeTime = 500; // 0.5 segundos para la transición de opacidad
-    // Se inicializará en DOMContentLoaded
-    // let bannerContentElement = null;
-
-    function displayNextBannerMessage() {
-        if (!bannerContentElement || bannerMessageKeys.length === 0) {
             return;
         }
-        bannerContentElement.classList.add('fade-out');
-        setTimeout(() => {
-            let randomIndex;
-            if (bannerMessageKeys.length > 1) {
-                do {
-                    randomIndex = Math.floor(Math.random() * bannerMessageKeys.length);
-                } while (randomIndex === currentBannerMessageIndex);
-            } else {
-                randomIndex = 0;
+
+        const alertDiv = document.createElement('div');
+        alertDiv.className = 'custom-alert';
+
+        const messageP = document.createElement('p');
+        messageP.textContent = message;
+        alertDiv.appendChild(messageP);
+
+        const closeButton = document.createElement('span');
+        closeButton.className = 'custom-alert-close';
+        closeButton.innerHTML = '&times;';
+        closeButton.setAttribute('role', 'button');
+        closeButton.setAttribute('tabindex', '0');
+        closeButton.setAttribute('aria-label', 'Cerrar alerta');
+        closeButton.onclick = () => removeCurrentAlert(true);
+        closeButton.onkeydown = (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                removeCurrentAlert(true);
             }
-            currentBannerMessageIndex = randomIndex;
-            const messageKey = bannerMessageKeys[currentBannerMessageIndex];
-            let translatedMessage = siteTranslations[currentLanguage]?.[messageKey] || siteTranslations['es']?.[messageKey];
-            if (!translatedMessage) {
-                translatedMessage = messageKey;
-            }
-            bannerContentElement.textContent = translatedMessage;
-            bannerContentElement.classList.remove('fade-out');
-        }, bannerFadeTime);
+        };
+        alertDiv.appendChild(closeButton);
+
+        document.body.appendChild(alertDiv);
+        currentAlert = alertDiv;
+
+        void currentAlert.offsetWidth;
+        currentAlert.classList.add('alert-visible');
+
+        if (alertTimeoutId) clearTimeout(alertTimeoutId);
+        alertTimeoutId = setTimeout(() => removeCurrentAlert(false), alertDuration);
     }
 
-    function startBannerRotation() {
-        if (bannerIntervalId) {
-            clearInterval(bannerIntervalId);
+    function displayRandomAlert() {
+        if (alertMessages.length === 0) return;
+        let randomIndex;
+        if (alertMessages.length > 1) {
+            do {
+                randomIndex = Math.floor(Math.random() * alertMessages.length);
+            } while (randomIndex === lastAlertIndex);
+        } else {
+            randomIndex = 0;
         }
-        // Asegurarse que bannerContentElement esté definido antes de usarlo
-        if (!bannerContentElement) { // Esta comprobación es por si se llama antes de DOMContentLoaded
-            bannerContentElement = document.getElementById('dynamic-banner-content');
-            if(!bannerContentElement) return; // Si aún no existe, no hacer nada.
-        }
+        lastAlertIndex = randomIndex;
+        createAndShowAlert(alertMessages[randomIndex]);
+    }
 
-        if (bannerMessageKeys.length > 0 && bannerContentElement) {
-            displayNextBannerMessage();
-            if (bannerMessageKeys.length > 1) {
-                bannerIntervalId = setInterval(displayNextBannerMessage, bannerDisplayTime + (bannerFadeTime * 2));
-            }
+    function startAlertRotation() {
+        if (alertIntervalId) {
+            clearInterval(alertIntervalId);
+        }
+        if (alertMessages.length > 0) {
+            setTimeout(() => {
+                displayRandomAlert();
+                if (alertMessages.length > 1) {
+                    alertIntervalId = setInterval(displayRandomAlert, alertRotationTime);
+                }
+            }, 2500);
         }
     }
-    // --- FIN LÓGICA BANNER DINÁMICO ---
+    // --- FIN LÓGICA DE ALERTAS TEMPORALES ---
 
     // --- INICIO LÓGICA DE TRADUCCIÓN ---
-
-    // Helper function to generate consistent keys for menu item names and descriptions
     function generateMenuItemKey(originalItemName, type) {
         const baseKey = originalItemName.toLowerCase()
-            .normalize("NFD").replace(/[\u0300-\u036f]/g, "") // Quitar tildes
+            .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
             .replace(/ñ/g, 'n')
             .replace(/\s+/g, '_')
             .replace(/[^a-z0-9_]/g, '');
         return `menu.item_${baseKey}_${type}`;
     }
 
-    // Helper function to generate consistent keys for menu categories
     function generateMenuCategoryKey(categoryName) {
         const baseKey = categoryName.toLowerCase()
-            .normalize("NFD").replace(/[\u0300-\u036f]/g, "") // Quitar tildes
+            .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
             .replace(/ñ/g, 'n')
             .replace(/\s+/g, '_')
             .replace(/[^a-z0-9_]/g, '');
         return `menu.category_${baseKey}`;
     }
 
-    let currentLanguage = 'es'; // Idioma por defecto
-    window.originalFetchedMenuData = null; // Para almacenar los datos originales del menú
-    let isInitialLoad = true; // Bandera para la carga inicial
+    let currentLanguage = 'es';
+    window.originalFetchedMenuData = null;
+    let isInitialLoad = true;
 
     async function setLanguage(lang) {
         if (!siteTranslations[lang]) {
             console.warn(`Traducciones para el idioma '${lang}' no encontradas. Usando '${currentLanguage}'.`);
-            lang = currentLanguage; // Usar el idioma actual si el nuevo no es válido
+            lang = currentLanguage;
         }
-        currentLanguage = lang; // Actualizar el idioma global
+        currentLanguage = lang;
 
-        // 1. Actualizar lang del HTML y título de la página
         document.documentElement.lang = lang;
         const titleKey = 'page_title';
         document.title = siteTranslations[lang]?.[titleKey] || siteTranslations['es']?.[titleKey] || document.title;
 
-        // 2. Traducir todos los elementos estáticos con data-translation-key
         document.querySelectorAll('[data-translation-key]').forEach(element => {
             const key = element.dataset.translationKey;
             let translation = siteTranslations[lang]?.[key];
-
-            if (translation === undefined && lang !== 'es') { // Fallback a español
+            if (translation === undefined && lang !== 'es') {
                 translation = siteTranslations['es']?.[key];
             }
-
             if (translation !== undefined) {
                 if (key.endsWith('_html')) {
                     element.innerHTML = translation;
@@ -296,49 +270,32 @@ document.addEventListener('DOMContentLoaded', async () => {
                     element.textContent = translation;
                 }
             }
-            // Si la traducción sigue siendo undefined, el texto original del HTML se mantiene.
         });
 
-        // 3. Guardar preferencia en localStorage
         localStorage.setItem('preferredLanguage', lang);
-
-        // 4. Actualizar clase 'active' en botones de idioma
         document.querySelectorAll('#language-selector .lang-btn').forEach(btn => {
             btn.classList.toggle('active', btn.dataset.lang === lang);
         });
 
-        // 5. Refrescar contenido dinámico (menú, galería, banner) SOLO si no es la carga inicial
-        // O si ya se han cargado los datos del menú
         if (window.originalFetchedMenuData) {
-            if (!isInitialLoad) { // Si es un cambio de idioma por el usuario, no la carga inicial
+            if (!isInitialLoad) {
                 createMenuSection(window.originalFetchedMenuData, currentLanguage);
                 initializeGalleryCarousel(window.originalFetchedMenuData, currentLanguage);
             }
-            // El banner siempre se refresca para asegurar que tome el idioma correcto
-            if (typeof displayNextBannerMessage === "function" && bannerMessageKeys.length > 0) {
-                // La rotación del banner se manejará/reiniciará explícitamente después de setLanguage si es necesario
-                // o al final de la inicialización. Por ahora, solo mostramos el mensaje actual traducido.
-                if (bannerIntervalId) clearInterval(bannerIntervalId); // Detener la rotación para evitar que cambie justo después de traducir
-                displayNextBannerMessage(); // Actualizar el mensaje actual del banner al nuevo idioma
-                // La rotación se reiniciará en startBannerRotation o después de la carga inicial si es necesario
-            }
+            // Las alertas son independientes del idioma y no necesitan refresco aquí
         }
     }
 
-    // Función para obtener la descripción traducida del plato
     const getTranslatedDescription = (item, lang) => {
         const descriptionKey = generateMenuItemKey(item.originalName, 'description');
         return siteTranslations[lang]?.[descriptionKey] || siteTranslations['es']?.[descriptionKey] || item.description;
     };
 
-    // Función para obtener el nombre traducido del plato
     const getTranslatedName = (item, lang) => {
         const nameKey = generateMenuItemKey(item.originalName, 'name');
         return siteTranslations[lang]?.[nameKey] || siteTranslations['es']?.[nameKey] || item.name;
     };
 
-
-    // Función para generar el menú dinámicamente con traducciones
     const createMenuSection = (menuData, lang) => {
         const menuCategoriesContainer = document.getElementById('menu-categories');
         if (!menuCategoriesContainer) {
@@ -346,32 +303,22 @@ document.addEventListener('DOMContentLoaded', async () => {
             return;
         }
         menuCategoriesContainer.innerHTML = '';
-
-        for (const categoryOriginalName in menuData) { // categoryOriginalName es "Entrantes", "Sopas", etc.
+        for (const categoryOriginalName in menuData) {
             const categoryKey = generateMenuCategoryKey(categoryOriginalName);
             const translatedCategoryName = siteTranslations[lang]?.[categoryKey] || siteTranslations['es']?.[categoryKey] || categoryOriginalName;
-
             const categoryDiv = document.createElement('div');
             categoryDiv.classList.add('category');
             categoryDiv.innerHTML = `<h3>${translatedCategoryName}</h3>`;
-
             const galleryDiv = document.createElement('div');
             galleryDiv.classList.add('gallery');
-
             menuData[categoryOriginalName].forEach((item, index) => {
                 const menuItemDiv = document.createElement('div');
                 menuItemDiv.classList.add('menu-card');
                 menuItemDiv.style.animationDelay = `${index * 0.1}s`;
-
                 const translatedItemName = getTranslatedName(item, lang);
                 const translatedItemDescription = getTranslatedDescription(item, lang);
-
-                const imagePath = item.image ? `images/menu/${item.image}` : 'images/gallery/placeholder.jpg';
-
                 menuItemDiv.innerHTML = `
-                    <img src="${imagePath}" alt="${translatedItemName}" class="menu-image" onerror="this.src='images/gallery/placeholder.jpg'; this.alt='Imagen no disponible';">
                     <h4>${translatedItemName}</h4>
-                    <p>${item.price ? item.price.toFixed(2) + ' CUP' : (siteTranslations[lang]?.['price_not_available'] || 'Precio no disponible')}</p>
                     <span class="tooltip">${translatedItemDescription}</span>
                 `;
                 galleryDiv.appendChild(menuItemDiv);
@@ -379,8 +326,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             categoryDiv.appendChild(galleryDiv);
             menuCategoriesContainer.appendChild(categoryDiv);
         }
-
-        // Toggle para expandir/contraer categorías (sin cambios aquí)
         const categoryTitles = document.querySelectorAll('.category h3');
         categoryTitles.forEach(title => {
             title.addEventListener('click', () => {
@@ -389,7 +334,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 const cards = category.querySelectorAll('.menu-card');
                 cards.forEach((card, index) => {
                     card.style.animation = 'none';
-                    card.offsetHeight; // Trigger reflow
+                    card.offsetHeight;
                     card.style.animation = null;
                     card.style.animationDelay = `${index * 0.1}s`;
                 });
@@ -397,36 +342,27 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
     };
 
-    // --- Cargar datos del menú desde menu.json ---
-    // let fetchedMenuData = {}; // Se usará window.originalFetchedMenuData en su lugar
     try {
         const response = await fetch('menu.json');
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
         const rawMenuData = await response.json();
-        // Pre-procesar los datos del menú para añadir originalName
         window.originalFetchedMenuData = {};
         for (const category in rawMenuData) {
             window.originalFetchedMenuData[category] = rawMenuData[category].map(item => ({
                 ...item,
-                originalName: item.name // Guardar el nombre original en español
+                originalName: item.name
             }));
         }
-
-        // Configurar idioma inicial y cargar contenido estático
         const preferredLanguage = localStorage.getItem('preferredLanguage') || 'es';
         await setLanguage(preferredLanguage);
-
-        // Renderizar contenido dinámico por primera vez
         if (window.originalFetchedMenuData) {
             createMenuSection(window.originalFetchedMenuData, currentLanguage);
             initializeGalleryCarousel(window.originalFetchedMenuData, currentLanguage);
         }
-
-        startBannerRotation(); // Iniciar el banner después de que todo esté configurado
-        isInitialLoad = false; // Marcar que la carga inicial ha terminado
-
+        startAlertRotation(); // Iniciar las alertas aquí
+        isInitialLoad = false;
     } catch (error) {
         console.error("No se pudieron cargar los datos del menú desde menu.json:", error);
         const menuCategoriesContainer = document.getElementById('menu-categories');
@@ -435,13 +371,11 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     }
 
-    // Animaciones al hacer scroll
     const observerOptions = {
         root: null,
         rootMargin: '0px',
         threshold: 0.1
     };
-
     const observerCallback = (entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -450,23 +384,19 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
         });
     };
-
     const observer = new IntersectionObserver(observerCallback, observerOptions);
     const sections = document.querySelectorAll('.animate-on-scroll');
     sections.forEach(section => observer.observe(section));
 
-    // Scroll suave con offset para el header fijo
     const navLinks = document.querySelectorAll('.main-nav a[href^="#"]');
     navLinks.forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
             const targetId = link.getAttribute('href');
             const targetElement = document.querySelector(targetId);
-
             if (targetElement) {
                 const headerHeight = document.querySelector('.main-header')?.offsetHeight || 0;
                 const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - headerHeight;
-
                 window.scrollTo({
                     top: targetPosition,
                     behavior: 'smooth'
@@ -475,9 +405,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
     });
 
-    // Efecto de encabezado al hacer scroll
     const header = document.querySelector('.main-header');
-    if (header) { // Verificar si el header existe
+    if (header) {
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
                 header.classList.add('scrolled');
@@ -487,27 +416,21 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
     }
 
-    // Año dinámico en el footer
     const currentYearSpan = document.getElementById('current-year');
-    if (currentYearSpan) { // Verificar si el span del año existe
+    if (currentYearSpan) {
       currentYearSpan.textContent = new Date().getFullYear();
     }
 
-
-    // Lógica para el modal de ubicación
     const locationBtn = document.getElementById('location-btn');
     const locationModal = document.getElementById('location-modal');
-    const closeModalBtn = document.getElementById('close-modal'); // Renombrado para claridad
-
-    if (locationBtn && locationModal && closeModalBtn) { // Verificar si todos los elementos del modal existen
+    const closeModalBtn = document.getElementById('close-modal');
+    if (locationBtn && locationModal && closeModalBtn) {
         locationBtn.addEventListener('click', () => {
             locationModal.classList.add('show');
         });
-
         closeModalBtn.addEventListener('click', () => {
             locationModal.classList.remove('show');
         });
-
         locationModal.addEventListener('click', (e) => {
             if (e.target === locationModal) {
                 locationModal.classList.remove('show');
@@ -515,30 +438,22 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
     }
 
-    // --- Lógica del Carrusel Generalizada ---
     function inicializarCarrusel(carouselId, carouselDataAttribute, imagePathPrefix, itemsData, getItemHtml) {
         const carouselElement = document.getElementById(carouselId);
-        // Seleccionar el contenedor de dots específico usando el atributo data
         const dotsContainerElement = document.querySelector(`.carousel-dots[data-carousel-dots="${carouselDataAttribute}"]`);
-        // Seleccionar botones específicos usando el atributo data
         const prevBtnElement = document.querySelector(`.carousel-prev[data-carousel="${carouselDataAttribute}"]`);
         const nextBtnElement = document.querySelector(`.carousel-next[data-carousel="${carouselDataAttribute}"]`);
 
         if (!carouselElement || !dotsContainerElement || !prevBtnElement || !nextBtnElement) {
-            // Silencioso si no se encuentran elementos, para no romper si una galería no está presente.
-            // console.warn(`Elementos del carrusel no encontrados para ${carouselId} con atributo ${carouselDataAttribute}. Este carrusel no se inicializará.`);
             return;
         }
-
         let currentIndex = 0;
-        const intervalTime = 8000; // Cambia cada 8 segundos
+        const intervalTime = 8000;
         let autoSlide;
 
-        // Generar items del carrusel
         const generarItems = () => {
-            carouselElement.innerHTML = ''; // Limpiar items existentes
-            dotsContainerElement.innerHTML = ''; // Limpiar dots existentes
-
+            carouselElement.innerHTML = '';
+            dotsContainerElement.innerHTML = '';
             if (!itemsData || itemsData.length === 0) {
                 carouselElement.innerHTML = '<p style="text-align:center; padding: 20px; color: #666;">Próximamente nuevas imágenes...</p>';
                 prevBtnElement.style.display = 'none';
@@ -546,37 +461,31 @@ document.addEventListener('DOMContentLoaded', async () => {
                 dotsContainerElement.style.display = 'none';
                 return;
             }
-
             itemsData.forEach((item, index) => {
                 const carouselItem = document.createElement('div');
                 carouselItem.classList.add('carousel-item');
                 carouselItem.innerHTML = getItemHtml(item, imagePathPrefix);
                 carouselElement.appendChild(carouselItem);
-
-                // Crear indicador (dot)
                 const dot = document.createElement('span');
                 dot.classList.add('carousel-dot');
                 dot.addEventListener('click', () => goToSlide(index));
                 dotsContainerElement.appendChild(dot);
             });
-            // Mostrar botones si hay items
             prevBtnElement.style.display = 'block';
             nextBtnElement.style.display = 'block';
-            dotsContainerElement.style.display = 'block'; // Asegurar que los dots se muestren
+            dotsContainerElement.style.display = 'block';
         };
 
         const actualizarDots = () => {
             const dots = dotsContainerElement.querySelectorAll('.carousel-dot');
             dots.forEach((dot, index) => dot.classList.toggle('active', index === currentIndex));
         };
-
         const goToSlide = (index) => {
             const items = carouselElement.querySelectorAll('.carousel-item');
             if (items.length === 0) return;
-            currentIndex = (index + items.length) % items.length; // Asegurar que el índice sea válido
+            currentIndex = (index + items.length) % items.length;
             actualizarCarrusel();
         };
-
         const actualizarCarrusel = () => {
             const items = carouselElement.querySelectorAll('.carousel-item');
             if (items.length === 0) return;
@@ -584,73 +493,60 @@ document.addEventListener('DOMContentLoaded', async () => {
             carouselElement.style.transform = `translateX(${offset}%)`;
             actualizarDots();
         };
-
         const iniciarAutoSlide = () => {
-            detenerAutoSlide(); // Asegurarse de que no haya múltiples intervalos
+            detenerAutoSlide();
             const items = carouselElement.querySelectorAll('.carousel-item');
-            if (items.length <= 1) return; // No iniciar auto-slide si hay 1 o menos imágenes
+            if (items.length <= 1) return;
             autoSlide = setInterval(() => {
                 currentIndex = (currentIndex + 1) % items.length;
                 actualizarCarrusel();
             }, intervalTime);
         };
-
         const detenerAutoSlide = () => clearInterval(autoSlide);
 
-        // Inicializar
-        generarItems(); // Genera los items y los dots
-        const items = carouselElement.querySelectorAll('.carousel-item'); // Re-seleccionar items después de generarlos
-
-        if (items.length > 0) { // Solo añadir listeners y empezar autoslide si hay items
+        generarItems();
+        const items = carouselElement.querySelectorAll('.carousel-item');
+        if (items.length > 0) {
             prevBtnElement.addEventListener('click', () => {
                 goToSlide(currentIndex - 1);
                 detenerAutoSlide();
-                iniciarAutoSlide(); // Reiniciar con el nuevo estado
+                iniciarAutoSlide();
             });
-
             nextBtnElement.addEventListener('click', () => {
                 goToSlide(currentIndex + 1);
                 detenerAutoSlide();
-                iniciarAutoSlide(); // Reiniciar con el nuevo estado
+                iniciarAutoSlide();
             });
-
             carouselElement.addEventListener('mouseenter', detenerAutoSlide);
             carouselElement.addEventListener('mouseleave', iniciarAutoSlide);
-
-            actualizarCarrusel(); // Llamada inicial para mostrar el primer slide y dots
+            actualizarCarrusel();
             iniciarAutoSlide();
         }
     }
 
-    // --- Datos e Inicialización para el Carrusel de Galería (Platos) ---
-    // Esta sección ahora dependerá de fetchedMenuData y el idioma actual
     const initializeGalleryCarousel = (menuDataParam, lang) => {
         const galeriaItems = [];
         if (typeof menuDataParam === 'object' && menuDataParam !== null) {
             for (const category in menuDataParam) {
                 if (Array.isArray(menuDataParam[category])) {
                     menuDataParam[category].forEach(item => {
-                        // Usar item.originalName para asegurar que siempre se refiere al nombre base para la clave
                         if (item && item.originalName && typeof item.originalName === 'string' && item.image) {
                             const translatedName = getTranslatedName(item, lang);
                             const translatedDescription = getTranslatedDescription(item, lang);
                             galeriaItems.push({
-                                name: translatedName, // Nombre traducido para mostrar
-                                description: translatedDescription, // Descripción traducida
-                                imageName: item.image, // Nombre de archivo de imagen no cambia
-                                originalName: item.originalName // Mantener por si acaso
+                                name: translatedName,
+                                description: translatedDescription,
+                                imageName: item.image,
+                                originalName: item.originalName
                             });
                         }
                     });
                 }
             }
         }
-
         function getGaleriaItemHtml(item, imagePathPrefix) {
             const imageSrc = `${imagePathPrefix}${item.imageName}`;
-            // Usar la descripción ya traducida que se pasó en galeriaItems
             const desc = item.description ? item.description.split('.')[0] : (siteTranslations[lang]?.['default_plate_description'] || 'Delicioso plato');
-
             return `
                 <img src="${imageSrc}" alt="${item.name}" loading="lazy" onerror="this.style.display='none'; this.parentElement.innerHTML += '<p style=\\'text-align:center; color: #888; padding-top: 50px;\\'>${(siteTranslations[lang]?.['image_not_available'] || 'Imagen no disponible')} (${item.imageName})</p>'">
                 <div class="carousel-caption">${item.name} - ${desc}</div>
@@ -659,11 +555,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         inicializarCarrusel('carousel', 'galeria', 'images/gallery/', galeriaItems, getGaleriaItemHtml);
     };
 
-    // La llamada a initializeGalleryCarousel se hace dentro de setLanguage después de cargar los datos.
-
-    // --- Datos e Inicialización para el Carrusel "Nuestros Recuerdos" ---
-    // Lista ampliada de imágenes de la carpeta 'images/nueva_galeria_recuerdos/'
-    // Se mantienen los nombres de archivo originales debido a problemas con la herramienta rename_file.
     const nuestrosRecuerdosItems = [
         { name: "Recuerdo 1", description: "Momento especial", imageName: "WhatsApp Image 2025-06-22 at 6.18.15 PM.jpeg" },
         { name: "Recuerdo 2", description: "Celebración", imageName: "WhatsApp Image 2025-06-22 at 6.18.19 PM.jpeg" },
@@ -695,10 +586,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         { name: "Recuerdo 28", description: "Rincón especial", imageName: "WhatsApp Image 2025-06-22 at 6.19.46 PM (1).jpeg" },
         { name: "Recuerdo 29", description: "Nuestra gente", imageName: "WhatsApp Image 2025-06-22 at 6.19.46 PM (2).jpeg" },
         { name: "Recuerdo 30", description: "Siempre bienvenidos", imageName: "WhatsApp Image 2025-06-22 at 6.19.46 PM.jpeg" }
-        // Se han añadido 30 imágenes. Idealmente, se deberían añadir las 151.
-        // Los nombres de archivo pueden contener caracteres que necesiten ser codificados por el navegador.
     ];
-
     function getRecuerdosItemHtml(item, imagePathPrefix) {
         const desc = item.description || 'Un momento especial';
         return `
@@ -706,29 +594,18 @@ document.addEventListener('DOMContentLoaded', async () => {
             <div class="carousel-caption">${item.name} - ${desc}</div>
         `;
     }
-
-    // El prefijo de la ruta de la imagen será 'images/nueva_galeria_recuerdos/'
     inicializarCarrusel('carousel-recuerdos', 'recuerdos', 'images/nueva_galeria_recuerdos/', nuestrosRecuerdosItems, getRecuerdosItemHtml);
 
-    // --- FIN LÓGICA DE TRADUCCIÓN ---
-
-    // Modificación en la carga inicial para iniciar el banner después de setLanguage
-    // (dentro del try...catch de carga de menu.json)
-    // ...
-    // const preferredLanguage = localStorage.getItem('preferredLanguage') || 'es';
-    // await setLanguage(preferredLanguage); // setLanguage es async
-    // startBannerRotation(); // Ahora se llama aquí
-
-
-    // Añadir listeners a los botones de idioma
     document.querySelectorAll('#language-selector .lang-btn').forEach(button => {
-        button.addEventListener('click', async (event) => { // Hacer el listener async
-            await setLanguage(event.target.dataset.lang); // setLanguage es async
-            // Después de que setLanguage haya actualizado todo, incluyendo el mensaje actual del banner,
-            // reiniciamos explícitamente la rotación del banner.
-            if (typeof startBannerRotation === "function") {
-                startBannerRotation();
+        button.addEventListener('click', async (event) => {
+            await setLanguage(event.target.dataset.lang);
+            // No es necesario reiniciar la rotación del banner aquí ya que fue eliminado
+            // PERO SÍ NECESITAMOS REINICIAR LA ROTACIÓN DE ALERTAS si es un cambio de idioma
+            if (typeof startAlertRotation === "function") { // Comprobar si la función existe
+                startAlertRotation(); // Reinicia el ciclo de alertas con el nuevo idioma si es necesario
             }
         });
     });
 });
+
+[end of script.js]
