@@ -351,25 +351,21 @@ body {
 
 .mensaje-valores {
   background: linear-gradient(135deg, #fff5e1 0%, #ffdab9 100%);
-  /* Marco más bonito y visible */
-  border: 4px double #b05c12; /* Borde doble dorado oscuro */
-  padding: 28px 35px 30px 35px; /* Un poco más de padding */
-  /* Ajuste de margen para que no quede debajo del header fijo (asumiendo header ~60-70px alto) */
+  border: 4px double #b05c12;
+  padding: 28px 35px 30px 35px;
   margin: 90px auto 40px auto;
-  border-radius: 18px; /* Ligeramente más redondeado */
+  border-radius: 18px;
   text-align: center;
-  max-width: 780px; /* Un poco más ancho */
-  /* Sombra más pronunciada para destacar */
+  max-width: 780px;
   box-shadow:
-    0 10px 35px rgba(160, 90, 30, 0.3), /* Sombra principal más difusa y oscura */
-    0 3px 8px rgba(0,0,0,0.15),        /* Sombra secundaria más nítida */
-    0 0 0 8px #fffdf8;                 /* Efecto de borde interno blanco */
+    0 10px 35px rgba(160, 90, 30, 0.3),
+    0 3px 8px rgba(0,0,0,0.15),
+    0 0 0 8px #fffdf8;
   font-family: 'Montserrat', Arial, sans-serif;
   position: relative;
   z-index: 2;
-  /* Animación sutil */
-  opacity: 0; /* Inicia invisible para la animación */
-  animation: sutilEntradaAniversario 0.9s 0.2s ease-out forwards; /* delay de 0.2s */
+  opacity: 0;
+  animation: sutilEntradaAniversario 0.9s 0.2s ease-out forwards;
 }
 
 .mensaje-valores h2 {
@@ -380,7 +376,7 @@ body {
   font-weight: 700;
   text-shadow: 0 2px 8px rgba(255,255,255,0.18);
 }
-.mensaje-valores p { /* Estilo original para los <p> */
+.mensaje-valores p {
   font-size: 1.18em;
   color: #4e2b06;
   font-family: 'Montserrat', Arial, sans-serif;
@@ -486,19 +482,20 @@ body {
 
 /* Estilos específicos para el carrusel "Nuestros Recuerdos" */
 #carousel-recuerdos .carousel-item {
-    background-color: #eeeeee; /* Fondo para espacios vacíos si la imagen no cubre todo */
+    background-color: #eeeeee;
 }
 
 #carousel-recuerdos .carousel-item img {
-    object-fit: contain; /* Asegura que toda la imagen sea visible dentro de los límites del ítem */
-    /* width y height al 100% son heredados de la regla general .carousel-item img, lo cual está bien. */
+    object-fit: contain;
 }
 
 /* Estilos para los botones de selección de idioma */
-/* #language-selector ruleset removed because it was empty */
+#language-selector {
+    /* Puedes añadir estilos personalizados aquí si lo necesitas. */
+}
 
 .lang-btn {
-    background-color: #444; /* Fondo oscuro para los botones */
+    background-color: #444;
     color: white;
     border: 1px solid #666;
     padding: 5px 10px;
@@ -514,7 +511,7 @@ body {
 }
 
 .lang-btn.active {
-    background-color: #ff6347; /* Color de acento para el botón activo */
+    background-color: #ff6347;
     color: white;
     border-color: #e5533d;
 }
@@ -524,21 +521,21 @@ body {
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%); /* Posición inicial para animación */
-    background-color: #333; /* Fondo oscuro para alto contraste */
-    color: #fff; /* Texto blanco */
-    padding: 25px; /* Aumentar padding general */
-    padding-right: 50px; /* Más espacio a la derecha para el botón de cierre */
+    transform: translate(-50%, -50%);
+    background-color: #333;
+    color: #fff;
+    padding: 25px;
+    padding-right: 50px;
     border-radius: 10px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.4); /* Sombra más pronunciada */
+    box-shadow: 0 8px 25px rgba(0,0,0,0.4);
     z-index: 2000;
     text-align: center;
     font-family: 'Montserrat', sans-serif;
-    font-size: 1.15em; /* Ligeramente más grande */
+    font-size: 1.15em;
     line-height: 1.6;
     min-width: 300px;
-    max-width: 550px; /* Un poco más de ancho máximo */
-    opacity: 0; /* Inicia invisible para animación de entrada */
+    max-width: 550px;
+    opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out, visibility 0s linear 0.3s;
 }
@@ -546,13 +543,13 @@ body {
 .custom-alert.alert-visible {
     opacity: 1;
     visibility: visible;
-    transform: translate(-50%, -50%) scale(1); /* Estado final visible */
+    transform: translate(-50%, -50%) scale(1);
     transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out, visibility 0s linear 0s;
 }
 
-.custom-alert.alert-fade-out { /* Clase para activar animación de salida */
+.custom-alert.alert-fade-out {
     opacity: 0;
-    transform: translate(-50%, -45%); /* Ligero movimiento hacia arriba al desaparecer */
+    transform: translate(-50%, -45%);
 }
 
 .custom-alert p {
@@ -565,13 +562,13 @@ body {
     right: 15px;
     font-size: 2em;
     font-weight: bold;
-    color: #bbb; /* Color más sutil para el botón de cierre */
+    color: #bbb;
     cursor: pointer;
     line-height: 1;
-    padding: 0px 5px; /* Ajustar padding */
+    padding: 0px 5px;
     transition: color 0.2s ease;
 }
 
 .custom-alert-close:hover {
-    color: #fff; /* Blanco al pasar el ratón */
+    color: #fff;
 }
