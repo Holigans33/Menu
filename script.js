@@ -10,9 +10,9 @@ document.addEventListener('DOMContentLoaded', async () => {
             nav_contact: "Contacto",
             main_header_title: "Delicias Cubanas",
             anniversary_title: "16 años de auténtica cubanía y respeto",
-            anniversary_p1_html: "<p>En nuestro restaurante celebramos con orgullo 16 años dedicados a compartir la verdadera esencia de la cocina cubana. Desde nuestros inicios, nos hemos esforzado por mantener vivo el sabor de nuestra tierra.<br><br></p>",
-            anniversary_p2_html: "<p>Creemos firmemente en la autenticidad: cada plato que servimos es una expresión genuina de la cultura cubana, preparado con el mismo amor y dedicación que en casa. Fomentamos el respeto y la hospitalidad como pilares fundamentales.<br><br></p>",
-            anniversary_p3_html: "<p>La cubanía es nuestro sello: aquí no solo se viene a comer, sino a vivir una experiencia donde la música, la alegría y la calidez humana se sienten en cada rincón. ¡Gracias a quienes nos han acompañado en este viaje!</p>",
+            anniversary_p1_html: "<p>En nuestro restaurante celebramos con orgullo 16 años dedicados a compartir la verdadera esencia de la cocina cubana. Desde nuestros inicios, nos hemos esforzado por mantener el sabor y la tradición que nos caracteriza.</p>",
+            anniversary_p2_html: "<p>Creemos firmemente en la autenticidad: cada plato que servimos es una expresión genuina de la cultura cubana, preparado con el mismo amor y dedicación que en casa.</p>",
+            anniversary_p3_html: "<p>La cubanía es nuestro sello: aquí no solo se viene a comer, sino a vivir una experiencia donde la música, la alegría y la calidez humana se sienten en cada rincón. ¡Gracias por ser parte de nuestra historia!</p>",
             hero_title: "Bienvenidos a Delicias Cubanas",
             hero_subtitle: "Disfruta de la auténtica comida cubana en un ambiente acogedor.",
             hero_location_button: "Ver Ubicación",
@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             "menu.category_Sopas": "Sopas",
             "menu.category_Cremas": "Cremas",
             "menu.category_Platos_Principales": "Platos Principales",
-            // ... (aquí irían el resto de las traducciones del menú como en tu código original)
+            // ... (resto de traducciones)
         },
         en: {
             page_title: "Delicias Cubanas - Restaurant",
@@ -46,14 +46,14 @@ document.addEventListener('DOMContentLoaded', async () => {
             nav_menu: "Menu",
             hero_title: "Welcome to Delicias Cubanas",
             anniversary_title: "16 years of authentic Cuban spirit and respect",
-            anniversary_p1_html: "<p>In our restaurant, we proudly celebrate 16 years dedicated to sharing the true essence of Cuban cuisine. Since our beginnings, we have strived to keep the taste of our land alive.<br><br></p>",
-            anniversary_p2_html: "<p>We firmly believe in authenticity: every dish we serve is a genuine expression of Cuban culture, prepared with the same love and dedication as at home. We promote respect and hospitality as fundamental pillars.<br><br></p>",
-            anniversary_p3_html: "<p>Cuban identity is our hallmark: here, you don't just come to eat, but to live an experience where music, joy, and human warmth are felt in every corner. Thank you to those who have accompanied us on this journey!</p>",
+            anniversary_p1_html: "<p>In our restaurant, we proudly celebrate 16 years dedicated to sharing the true essence of Cuban cuisine. Since our beginnings, we have strived to keep the taste and tradition that makes us unique.</p>",
+            anniversary_p2_html: "<p>We firmly believe in authenticity: every dish we serve is a genuine expression of Cuban culture, prepared with the same love and dedication as at home. We promise to delight you!</p>",
+            anniversary_p3_html: "<p>Cuban identity is our hallmark: here, you don't just come to eat, but to live an experience where music, joy, and human warmth are felt in every corner. Thank you for being part of our story!</p>",
             price_not_available: "Price not available",
             image_not_available: "Image not available",
             default_plate_description: "Delicious dish",
             "menu.category_Entrantes": "Appetizers",
-            // ... (idem resto de traducciones necesarias)
+            // ... (rest of necessary translations)
         },
         it: {
             page_title: "Delicias Cubanas - Ristorante",
@@ -61,14 +61,14 @@ document.addEventListener('DOMContentLoaded', async () => {
             nav_menu: "Menù",
             hero_title: "Benvenuti a Delicias Cubanas",
             anniversary_title: "16 anni di autentica cubanità e rispetto",
-            anniversary_p1_html: "<p>Nel nostro ristorante celebriamo con orgoglio 16 anni dedicati a condividere la vera essenza della cucina cubana. Fin dai nostri inizi, ci siamo sforzati di mantenere vivo il sapore della nostra terra.<br><br></p>",
-            anniversary_p2_html: "<p>Crediamo fermamente nell'autenticità: ogni piatto che serviamo è un'espressione genuina della cultura cubana, preparato con lo stesso amore e dedizione di casa. Promuoviamo il rispetto e l'ospitalità come pilastri fondamentali.<br><br></p>",
-            anniversary_p3_html: "<p>La cubanità è il nostro sigillo: qui non si viene solo per mangiare, ma per vivere un'esperienza dove la musica, la gioia e il calore umano si sentono in ogni angolo. Grazie a coloro che ci hanno accompagnato in questo viaggio!</p>",
+            anniversary_p1_html: "<p>Nel nostro ristorante celebriamo con orgoglio 16 anni dedicati a condividere la vera essenza della cucina cubana. Fin dai nostri inizi, ci siamo sforzati di mantenere il sapore e la tradizione che ci caratterizzano.</p>",
+            anniversary_p2_html: "<p>Crediamo fermamente nell'autenticità: ogni piatto che serviamo è un'espressione genuina della cultura cubana, preparato con lo stesso amore e dedizione di casa.</p>",
+            anniversary_p3_html: "<p>La cubanità è il nostro sigillo: qui non si viene solo per mangiare, ma per vivere un'esperienza dove la musica, la gioia e il calore umano si sentono in ogni angolo. Grazie per far parte della nostra storia!</p>",
             price_not_available: "Prezzo non disponibile",
             image_not_available: "Immagine non disponibile",
             default_plate_description: "Piatto delizioso",
             "menu.category_Entrantes": "Antipasti",
-            // ... (idem resto de traducciones necesarias)
+            // ... (resto de traducciones necesarias)
         }
     };
 
@@ -172,7 +172,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
     // --- FIN ALERTAS TEMPORALES ---
 
-    // --- TRADUCCIÓN Y MENÚ ---
+    // --- FUNCIONES DE TRADUCCIÓN Y MENÚ ---
     function generateMenuItemKey(originalItemName, type) {
         const baseKey = originalItemName.toLowerCase()
             .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
@@ -289,36 +289,38 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
     };
 
-    try {
-        const response = await fetch('menu.json');
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
+    // --- FUNCIONES DE CARRUSEL (antes de uso) ---
+    function initializeGalleryCarousel(menuDataParam, lang) {
+        const galeriaItems = [];
+        if (typeof menuDataParam === 'object' && menuDataParam !== null) {
+            for (const category in menuDataParam) {
+                if (Array.isArray(menuDataParam[category])) {
+                    menuDataParam[category].forEach(item => {
+                        if (item && item.originalName && typeof item.originalName === 'string' && item.image) {
+                            const translatedName = getTranslatedName(item, lang);
+                            const translatedDescription = getTranslatedDescription(item, lang);
+                            galeriaItems.push({
+                                name: translatedName,
+                                description: translatedDescription,
+                                imageName: item.image,
+                                originalName: item.originalName
+                            });
+                        }
+                    });
+                }
+            }
         }
-        const rawMenuData = await response.json();
-        window.originalFetchedMenuData = {};
-        for (const category in rawMenuData) {
-            window.originalFetchedMenuData[category] = rawMenuData[category].map(item => ({
-                ...item,
-                originalName: item.name
-            }));
+        function getGaleriaItemHtml(item, imagePathPrefix) {
+            const imageSrc = `${imagePathPrefix}${item.imageName}`;
+            const desc = item.description ? item.description.split('.')[0] : (siteTranslations[lang]?.['default_plate_description'] || 'Delicioso plato');
+            return `
+                <img src="${imageSrc}" alt="${item.name}" loading="lazy" onerror="this.style.display='none'; this.parentElement.innerHTML += '<p style=\\'text-align:center; color: #888; padding-top: 30px;\\'>${siteTranslations[lang]?.image_not_available || 'Imagen no disponible'}</p>';">
+                <div class="carousel-caption">${item.name} - ${desc}</div>
+            `;
         }
-        const preferredLanguage = localStorage.getItem('preferredLanguage') || 'es';
-        await setLanguage(preferredLanguage);
-        if (window.originalFetchedMenuData) {
-            createMenuSection(window.originalFetchedMenuData, currentLanguage);
-            initializeGalleryCarousel(window.originalFetchedMenuData, currentLanguage);
-        }
-        startAlertRotation();
-        isInitialLoad = false;
-    } catch (error) {
-        console.error("No se pudieron cargar los datos del menú desde menu.json:", error);
-        const menuCategoriesContainer = document.getElementById('menu-categories');
-        if (menuCategoriesContainer) {
-            menuCategoriesContainer.innerHTML = "<p style='color:red; text-align:center;'>Error al cargar el menú. Intente más tarde.</p>";
-        }
+        inicializarCarrusel('carousel', 'galeria', 'images/gallery/', galeriaItems, getGaleriaItemHtml);
     }
 
-    // --- CARRUSELES ---
     function inicializarCarrusel(carouselId, carouselDataAttribute, imagePathPrefix, itemsData, getItemHtml) {
         const carouselElement = document.getElementById(carouselId);
         const dotsContainerElement = document.querySelector(`.carousel-dots[data-carousel-dots="${carouselDataAttribute}"]`);
@@ -405,46 +407,45 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     }
 
-    const initializeGalleryCarousel = (menuDataParam, lang) => {
-        const galeriaItems = [];
-        if (typeof menuDataParam === 'object' && menuDataParam !== null) {
-            for (const category in menuDataParam) {
-                if (Array.isArray(menuDataParam[category])) {
-                    menuDataParam[category].forEach(item => {
-                        if (item && item.originalName && typeof item.originalName === 'string' && item.image) {
-                            const translatedName = getTranslatedName(item, lang);
-                            const translatedDescription = getTranslatedDescription(item, lang);
-                            galeriaItems.push({
-                                name: translatedName,
-                                description: translatedDescription,
-                                imageName: item.image,
-                                originalName: item.originalName
-                            });
-                        }
-                    });
-                }
-            }
+    // --- CARGA DE DATOS Y USO DE FUNCIONES ---
+    try {
+        const response = await fetch('menu.json');
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
         }
-        function getGaleriaItemHtml(item, imagePathPrefix) {
-            const imageSrc = `${imagePathPrefix}${item.imageName}`;
-            const desc = item.description ? item.description.split('.')[0] : (siteTranslations[lang]?.['default_plate_description'] || 'Delicioso plato');
-            return `
-                <img src="${imageSrc}" alt="${item.name}" loading="lazy" onerror="this.style.display='none'; this.parentElement.innerHTML += '<p style=\\'text-align:center; color: #888; padding-top: 50px;\\'>${(siteTranslations[lang]?.['image_not_available'] || 'Imagen no disponible')} (${item.imageName})</p>'">
-                <div class="carousel-caption">${item.name} - ${desc}</div>
-            `;
+        const rawMenuData = await response.json();
+        window.originalFetchedMenuData = {};
+        for (const category in rawMenuData) {
+            window.originalFetchedMenuData[category] = rawMenuData[category].map(item => ({
+                ...item,
+                originalName: item.name
+            }));
         }
-        inicializarCarrusel('carousel', 'galeria', 'images/gallery/', galeriaItems, getGaleriaItemHtml);
-    };
+        const preferredLanguage = localStorage.getItem('preferredLanguage') || 'es';
+        await setLanguage(preferredLanguage);
+        if (window.originalFetchedMenuData) {
+            createMenuSection(window.originalFetchedMenuData, currentLanguage);
+            initializeGalleryCarousel(window.originalFetchedMenuData, currentLanguage);
+        }
+        startAlertRotation();
+        isInitialLoad = false;
+    } catch (error) {
+        console.error("No se pudieron cargar los datos del menú desde menu.json:", error);
+        const menuCategoriesContainer = document.getElementById('menu-categories');
+        if (menuCategoriesContainer) {
+            menuCategoriesContainer.innerHTML = "<p style='color:red; text-align:center;'>Error al cargar el menú. Intente más tarde.</p>";
+        }
+    }
 
     // --- CARRUSEL NUESTROS RECUERDOS ---
     const nuestrosRecuerdosItems = [
         { name: "Recuerdo 1", description: "Momento especial", imageName: "WhatsApp Image 2025-06-22 at 6.18.15 PM.jpeg" },
-        // ... (agrega aquí el resto de tus recuerdos como en el código original) ...
+        // ... (agrega aquí el resto de tus recuerdos)
     ];
     function getRecuerdosItemHtml(item, imagePathPrefix) {
         const desc = item.description || 'Un momento especial';
         return `
-            <img src="${imagePathPrefix}${item.imageName}" alt="${item.name}" loading="lazy" onerror="this.style.display='none'; this.parentElement.innerHTML += '<p style=\\'text-align:center; color: #888; padding-top: 50px;\\'>Imagen no disponible</p>'">
+            <img src="${imagePathPrefix}${item.imageName}" alt="${item.name}" loading="lazy" onerror="this.style.display='none'; this.parentElement.innerHTML += '<p style=\\'text-align:center; color: #888; padding-top: 30px;\\'>Imagen no disponible</p>';">
             <div class="carousel-caption">${item.name} - ${desc}</div>
         `;
     }
